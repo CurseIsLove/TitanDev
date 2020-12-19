@@ -1,6 +1,6 @@
 . titanub/utils.sh
 . titanub/checks.sh
-
+. titanub/logbot/logbot.sh
 trap handleSigTerm TERM
 trap handleSigInt INT
 
