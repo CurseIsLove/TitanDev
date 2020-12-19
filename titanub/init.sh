@@ -1,6 +1,6 @@
 . titanub/utils.sh
 . titanub/checks.sh
-
+. titanub/logbot/logbot.sh
 trap handleSigTerm TERM
 trap handleSigInt INT
 
@@ -14,7 +14,7 @@ initNaruto() {
 }
 
 startNaruto() {
-    runPythonModule naruto "$@"
+   python3 -m naruto
 }
 
 stopNaruto() {
@@ -36,7 +36,6 @@ handleSigInt() {
 
 runNaruto() {
     initNaruto
-    startLogBotPolling
     startNaruto "$@"
     stopNaruto
 }
