@@ -3,8 +3,6 @@ import sys
 from os.path import dirname
 from typing import List
 
-from userge import logging
-from userge.utils import get_import_path
 
 def __list_all_modules():
     from os.path import dirname, basename, isfile
