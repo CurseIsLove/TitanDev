@@ -25,14 +25,12 @@ stopNaruto() {
 handleSigTerm() {
     log "Exiting With SIGTERM (143) ..."
     stopNaruto
-    endLogBotPolling
     exit 143
 }
 
 handleSigInt() {
     log "Exiting With SIGINT (130) ..."
     stopNaruto
-    endLogBotPolling
     exit 130
 }
 
