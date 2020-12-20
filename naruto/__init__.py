@@ -75,4 +75,4 @@ async def get_bot():
 BASE = declarative_base()
 SESSION = mulaisql()
 setbot = Client(BOT_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN, workers=Config.ASSISTANT_W)
-app = Client(APP_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, workers=Config.BOT_W)
+naruto = Client(APP_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, workers=Config.BOT_W)
