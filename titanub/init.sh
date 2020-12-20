@@ -5,12 +5,10 @@ trap handleSigTerm TERM
 trap handleSigInt INT
 
 initNaruto() {
-    printLogo
     assertPrerequisites
     sendMessage "Initializing titan..."
     assertEnvironment
     editLastMessage "Starting Titan ..."
-    printLine
 }
 
 startNaruto() {
