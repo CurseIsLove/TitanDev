@@ -3,6 +3,8 @@ import os
 import platform
 import sys
 import time
+import requests
+from pydrive.auth import GoogleAuth
 from pyrogram import Client, errors
 from naruto.config import Config
 from sqlalchemy import create_engine, exc
@@ -15,7 +17,7 @@ if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
     APP_SESSION = Config.HU_STRING_SESSION
 OWNER = Config.OWNER_ID
 Owner = OWNER
-gauth = Config.GoogleAuth()
+gauth = GoogleAuth()
 AdminSettings = Owner
 DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
