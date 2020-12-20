@@ -11,7 +11,7 @@ from sqlalchemy import create_engine, exc
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-
+log = logging.getLogger()
 if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
     BOT_SESSION = Config.ASSISTANT_SESSION
     APP_SESSION = Config.HU_STRING_SESSION
