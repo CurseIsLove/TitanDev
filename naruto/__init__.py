@@ -15,6 +15,7 @@ log = logging.getLogger()
 if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
     BOT_SESSION = Config.ASSISTANT_SESSION
     APP_SESSION = Config.HU_STRING_SESSION
+HEROKU_API = Config.HEROKU_API_KEY
 OWNER = Config.OWNER_ID
 Owner = OWNER
 gauth = GoogleAuth()
