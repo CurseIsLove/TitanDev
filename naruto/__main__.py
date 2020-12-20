@@ -7,7 +7,7 @@ import traceback
 from pyrogram import idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from narto import naruto, Owner, log, setbot, get_self, get_bot
+from naruto import naruto, Owner, log, setbot, get_self, get_bot
 from naruto.assistant import ALL_SETTINGS
 from naruto.plugins import ALL_MODULES
 
