@@ -45,7 +45,7 @@ async def get_bot_inline(bot):
     global BOTINLINE_AVAIABLE
     if setbot:
         try:
-            await app.get_inline_bot_results("@{}".format(bot.username), "test")
+            await naruto.get_inline_bot_results("@{}".format(bot.username), "test")
             BOTINLINE_AVAIABLE = True
         except errors.exceptions.bad_request_400.BotInlineDisabled:
             BOTINLINE_AVAIABLE = False
@@ -53,7 +53,7 @@ async def get_bot_inline(bot):
 
 async def get_self():
     global Owner, OwnerName, OwnerUsername, AdminSettings
-    getself = await app.get_me()
+    getself = await naruto.get_me()
     Owner = getself.id
     if getself.last_name:
         OwnerName = getself.first_name + " " + getself.last_name
