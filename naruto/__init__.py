@@ -10,11 +10,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 
-if HU_STRING_SESSION and ASSISTANT_SESSION:
-    BOT_SESSION = ASSISTANT_SESSION
-    APP_SESSION = HU_STRING_SESSION
-OWNER = OWNER_ID
-gauth = GoogleAuth()
+if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
+    BOT_SESSION = Config.ASSISTANT_SESSION
+    APP_SESSION = Config.HU_STRING_SESSION
+OWNER = Config.OWNER_ID
+Owner = OWNER
+gauth = ConfigGoogleAuth()
 AdminSettings = Owner
 DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
@@ -27,7 +28,7 @@ ASSISTANT_NOLOAD = ""
 # Postgresql
 def mulaisql() -> scoped_session:
     global DB_AVAILABLE
-    engine = create_engine(DB_URI, client_encoding="utf8")
+    engine = create_engine(Config.DB_URI, client_encoding="utf8")
     BASE.metadata.bind = engine
     try:
         BASE.metadata.create_all(engine)
@@ -72,6 +73,6 @@ async def get_bot():
 BASE = declarative_base()
 SESSION = mulaisql()
 
-setbot = Client(BOT_SESSION, api_id=api_id, api_hash=api_hash, bot_token=ASSISTANT_BOT_TOKEN, workers=ASSISTANT_W,
+setbot = Client(BOT_SESSION, api_id=Config.api_id, api_hash=Config.api_hash, bot_token=Config.ASSISTANT_BOT_TOKEN, workers=Config.ASSISTANT_W,
                 test_mode=TEST_MODE)
-app = Client(APP_SESSION, api_id=api_id, api_hash=api_hash, workers=BOT_W, test_mode=TEST_MODE)
+app = Client(APP_SESSION, api_id=Config.api_id, api_hash=Config.api_hash, workers=Config.BOT_W, test_mode=TEST_MODE)
