@@ -106,7 +106,7 @@ async def start_bot():
     # Assistant bot
     await setbot.start()
     for setting in ALL_SETTINGS:
-        imported_module = importlib.import_module("nana.assistant." + setting)
+        imported_module = importlib.import_module("naruto.assistant." + setting)
     # Nana userbot
     await naruto.begin()
     for modul in ALL_MODULES:
