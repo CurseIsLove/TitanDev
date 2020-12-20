@@ -15,7 +15,7 @@ if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
     APP_SESSION = Config.HU_STRING_SESSION
 OWNER = Config.OWNER_ID
 Owner = OWNER
-gauth = ConfigGoogleAuth()
+gauth = Config.GoogleAuth()
 AdminSettings = Owner
 DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
