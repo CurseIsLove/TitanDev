@@ -20,7 +20,7 @@ class Config:
     DB_URI2 = os.environ.get("MONGODB_URL")
     LANG = os.environ.get("PREFERRED_LANGUAGE")
     DOWN_PATH = os.environ.get("DOWN_PATH")
-    Command = os.environ.get("Command,""! . - ^")
+    Command = (os.environ.get("Command", "! . - ^").split())
     CMD_TRIGGER = os.environ.get("CMD_TRIGGER")
     SUDO_TRIGGER = os.environ.get("SUDO_TRIGGER")
     FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR")
