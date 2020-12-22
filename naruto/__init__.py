@@ -30,6 +30,7 @@ ASSISTANT_LOAD = ""
 ASSISTANT_NOLOAD = ""
 Command = (Config.Command)
 StartTime = time.time()
+BOT_IMG = Config.BOT_IMG
 # Postgresql
 def mulaisql() -> scoped_session:
     global DB_AVAILABLE
