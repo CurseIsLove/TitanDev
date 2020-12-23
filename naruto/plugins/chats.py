@@ -5,7 +5,7 @@ from pyrogram import filters
 from naruto import naruto, Command, DB_AVAILABLE
 
 if DB_AVAILABLE:
-    from naruto.modules.database.chats_db import update_chat, get_all_chats
+    from naruto.plugins.database.chats_db import update_chat, get_all_chats
 
 MESSAGE_RECOUNTER = 0
 
