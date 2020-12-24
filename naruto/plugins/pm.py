@@ -5,7 +5,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 from naruto import (
-    app,
+    naruto,
     setbot,
     Command,
     Owner,
