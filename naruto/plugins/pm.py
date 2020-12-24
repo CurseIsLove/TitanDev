@@ -18,7 +18,7 @@ from naruto import (
 from naruto.helpers.parser import mention_markdown
 
 if DB_AVAILABLE:
-    from naruto.modules.database.pm_db import (
+    from naruto.plugins.database.pm_db import (
         set_whitelist,
         get_whitelist,
         set_req,
