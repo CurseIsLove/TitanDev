@@ -27,6 +27,7 @@ ASSISTANT_VERSION = 0.1
 USERBOT_LOAD =""
 USERBOT_NOLOAD = ""
 ASSISTANT_LOAD = ""
+PM_PERMIT= Config.PM_PERMIT
 ASSISTANT_NOLOAD = ""
 Command = (Config.Command)
 StartTime = time.time()
