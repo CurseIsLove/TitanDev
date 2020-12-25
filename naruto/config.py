@@ -14,7 +14,6 @@ class Config:
     HU_STRING_SESSION = os.environ.get("HU_STRING_SESSION", None)
     ASSISTANT_SESSION = os.environ.get("ASSISTANT_SESSION")
     OWNER_ID = tuple(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "0").split())))
-    PM_PERMIT= (os.environ.get("PM_PERMIT",None)
     LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
     DB_URI = os.environ.get("DATABASE_URL", None)
     BOT_IMG = os.environ.get("BOT_IMG", None)
@@ -70,3 +69,4 @@ class Config:
     HEROKU_APP = heroku3.from_key(HEROKU_API_KEY).apps()[HEROKU_APP_NAME] \
         if HEROKU_API_KEY and HEROKU_APP_NAME else None
     STATUS = None
+    PM_PERMIT= (os.environ.get("PM_PERMIT",None)
