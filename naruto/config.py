@@ -70,3 +70,4 @@ class Config:
         if HEROKU_API_KEY and HEROKU_APP_NAME else None
     STATUS = None
     PM_PERMIT= (os.environ.get("PM_PERMIT",None))
+    lydia_api= (os.environ.get("LYDIA_API",None))
