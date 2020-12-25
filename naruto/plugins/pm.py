@@ -7,7 +7,7 @@ from naruto import naruto, setbot, Command, Owner, BotUsername, DB_AVAILABLE, Ad
 from naruto.helpers.parser import mention_markdown
 
 if DB_AVAILABLE:
-    from naruto.modules.database.pm_db import set_whitelist, get_whitelist, set_req, get_req, del_whitelist
+    from naruto.plugins.database.pm_db import set_whitelist, get_whitelist, set_req, get_req, del_whitelist
 
 welc_txt = f"""Hello, I'm {OwnerName}'s Userbot.
 Try contacting me by pressing buttons down bellow"""
