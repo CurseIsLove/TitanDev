@@ -81,3 +81,7 @@ BASE = declarative_base()
 SESSION = mulaisql()
 setbot = Client(BOT_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN, workers=Config.ASSISTANT_W)
 naruto = Client(APP_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, workers=Config.BOT_W)
+async def edrep(msg: Message, **kwargs):
+    func = msg.edit_text if msg.from_user.is_self else msg.reply
+    spec = getfullargspec(func.__wrapped__).args
+    await func(**{k: v for k, v in kwargs.items() if k in spec})
