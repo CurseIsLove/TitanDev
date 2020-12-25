@@ -28,6 +28,7 @@ USERBOT_LOAD =""
 USERBOT_NOLOAD = ""
 ASSISTANT_LOAD = ""
 PM_PERMIT= Config.PM_PERMIT
+lydia_api= Config.lydia_api
 ASSISTANT_NOLOAD = ""
 Command = (Config.Command)
 StartTime = time.time()
