@@ -7,7 +7,7 @@ import requests
 from inspect import getfullargspec
 from pydrive.auth import GoogleAuth
 from pyrogram import Client, errors
-from pyrogram.types import Messages
+from pyrogram.types import Message
 from naruto.config import Config
 from sqlalchemy import create_engine, exc
 from sqlalchemy.ext.declarative import declarative_base
