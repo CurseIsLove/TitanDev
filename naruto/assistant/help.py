@@ -8,11 +8,11 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from naruto import setbot, AdminSettings, Command, DB_AVAILABLE, StartTime, BOT_IMG, Owner
 from naruto.assistant.theme.theme_helper import get_theme
 from naruto.helpers.misc import paginate_modules
-from naruto.modules.chats import get_msgc
+from naruto.plugins.chats import get_msgc
 
 if DB_AVAILABLE:
-    from naruto.modules.database.chats_db import get_all_chats
-    from naruto.modules.database.notes_db import get_all_selfnotes
+    from naruto.plugins.database.chats_db import get_all_chats
+    from naruto.plugins.database.notes_db import get_all_selfnotes
 
 
 HELP_STRINGS = f"""

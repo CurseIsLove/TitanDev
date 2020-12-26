@@ -7,7 +7,7 @@ import traceback
 from pyrogram import idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from narto import naruto, Owner, log, setbot, get_self, get_bot
+from naruto import naruto, Owner, log, setbot, get_self, get_bot
 from naruto.assistant import ALL_SETTINGS
 from naruto.plugins import ALL_MODULES
 
@@ -106,11 +106,11 @@ async def start_bot():
     # Assistant bot
     await setbot.start()
     for setting in ALL_SETTINGS:
-        imported_module = importlib.import_module("nana.assistant." + setting)
+        imported_module = importlib.import_module("naruto.assistant." + setting)
     # Nana userbot
-    await naruto.begin()
+    await naruto.start()
     for modul in ALL_MODULES:
-        imported_module = importlib.import_module("nana.plugins." + modul)
+        imported_module = importlib.import_module("naruto.plugins." + modul)
         if hasattr(imported_module, "__MODULE__") and imported_module.__MODULE__:
             imported_module.__MODULE__ = imported_module.__MODULE__
         if hasattr(imported_module, "__MODULE__") and imported_module.__MODULE__:

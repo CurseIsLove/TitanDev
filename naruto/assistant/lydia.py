@@ -6,7 +6,7 @@ from coffeehouse.api import API
 from coffeehouse.lydia import LydiaAI
 from pyrogram import filters
 
-import naruto.modules.meme_strings as meme_strings
+import naruto.plugins.meme_strings as meme_strings
 from naruto import setbot, AdminSettings, lydia_api
 
 lydia_status = False

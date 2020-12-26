@@ -9,13 +9,13 @@ from pyrogram.types import InlineQueryResultArticle, InlineKeyboardMarkup, Input
 from naruto import setbot, Owner, OwnerName, DB_AVAILABLE
 from naruto.helpers.msg_types import Types
 from naruto.helpers.string import parse_button, build_keyboard
-from naruto.modules.pm import welc_txt
-from naruto.modules.stylish import text_style_generator, formatting_text_inline, CHAR_OVER, \
+from naruto.plugins.pm import welc_txt
+from naruto.plugins.stylish import text_style_generator, formatting_text_inline, CHAR_OVER, \
     CHAR_UNDER, CHAR_STRIKE, graffiti, graffitib, CHAR_POINTS, upsidedown_text_inline, smallcaps, superscript, \
     subscript, wide, bubbles, bubblesblack, smothtext, handwriting, handwritingb
 
 if DB_AVAILABLE:
-    from naruto.modules.database import notes_db
+    from naruto.plugins.database import notes_db
 
 
 GET_FORMAT = {

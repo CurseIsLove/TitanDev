@@ -1,5 +1,5 @@
-from naruto import ASSISTANT_LOAD, ASSISTANT_NOLOAD
-from naruto.logger import logging
+from naruto import ASSISTANT_LOAD, ASSISTANT_NOLOAD , log
+
 
 def __list_all_modules():
     from os.path import dirname, basename, isfile

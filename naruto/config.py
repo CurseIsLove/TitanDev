@@ -1,10 +1,10 @@
 import os
 from typing import Set
-
+import sys
 import heroku3
 from git import Repo
 from pyrogram import filters
-_REPO = Repo()
+
 class Config:
     """ Configs to setup Userge """
     API_ID = int(os.environ.get("API_ID"))
@@ -15,11 +15,12 @@ class Config:
     ASSISTANT_SESSION = os.environ.get("ASSISTANT_SESSION")
     OWNER_ID = tuple(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "0").split())))
     LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
-    DB_URI = os.environ.get("DATABASE_URL")
-    BOT_IMG = os.environ.get("BOT_IMG")
+    DB_URI = os.environ.get("DATABASE_URL", None)
+    BOT_IMG = os.environ.get("BOT_IMG", None)
     DB_URI2 = os.environ.get("MONGODB_URL")
     LANG = os.environ.get("PREFERRED_LANGUAGE")
     DOWN_PATH = os.environ.get("DOWN_PATH")
+    Command = (os.environ.get("Command", "! . - ^").split())
     CMD_TRIGGER = os.environ.get("CMD_TRIGGER")
     SUDO_TRIGGER = os.environ.get("SUDO_TRIGGER")
     FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR")
@@ -68,3 +69,5 @@ class Config:
     HEROKU_APP = heroku3.from_key(HEROKU_API_KEY).apps()[HEROKU_APP_NAME] \
         if HEROKU_API_KEY and HEROKU_APP_NAME else None
     STATUS = None
+    PM_PERMIT= (os.environ.get("PM_PERMIT",None))
+    lydia_api= (os.environ.get("LYDIA_API",None))

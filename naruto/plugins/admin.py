@@ -647,9 +647,7 @@ async def smode_switch(message: Message):
                 f"`something went wrong!!, do .help smode for more info..` \n\n**ERROR:** `{e_f}`")
     else:
         await message.edit("`inavlid flag type/mode.. do .help smode for more info!!`", del_in=5)
-        
-        
- @naruto.on_cmd(
+@naruto.on_cmd(
     "lock", about={
         'header': "use this to lock group permissions",
         'description': "Allows you to lock some common permission types in the chat.\n"
