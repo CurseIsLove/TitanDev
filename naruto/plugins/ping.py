@@ -3,5 +3,5 @@ from naruto import naruto
 from pyrogram import filters
 
 @naruto.on_message(filters.command(filters.user(AdminSettings) & ("ping", Command)))
-async def_(_, message)
+async def _(_, message)
    await ping(_, message)
