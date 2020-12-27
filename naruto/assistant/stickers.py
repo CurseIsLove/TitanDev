@@ -11,7 +11,8 @@ from naruto.assistant.database.stickers_db import set_sticker_set, set_stanim_se
 from .settings import get_text_settings, get_button_settings
 
 TODEL = {}
-
+USER_SET = {}
+TODEL = {}
 
 @setbot.on_message(filters.user(AdminSettings) & filters.command(["setsticker"]))
 async def get_stickers(_client, message):
@@ -59,7 +60,7 @@ async def get_stickers_animation(_client, message):
 
 # app.read_history("@Stickers")
 
-def get_stickerlist(message):
+def get_stickerlist(_,message):
     if not DB_AVAILABLE:
         return
     global TEMP_KEYBOARD, USER_SET

@@ -4,13 +4,29 @@ import platform
 import sys
 import time
 import requests
+from inspect import getfullargspec
 from pydrive.auth import GoogleAuth
 from pyrogram import Client, errors
+from pyrogram.types import Message
 from naruto.config import Config
 from sqlalchemy import create_engine, exc
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
-
+LOG_FORMAT = (
+    "[%(asctime)s.%(msecs)03d] %(filename)s:%(lineno)s %(levelname)s: %(message)s"
+)
+logging.basicConfig(
+    level=logging.ERROR,
+    format=LOG_FORMAT,
+    datefmt="%m-%d %H:%M",
+    filename="naruto/logs/error.log",
+    filemode="w",
+)
+console = logging.StreamHandler()
+console.setLevel(logging.ERROR)
+formatter = logging.Formatter(LOG_FORMAT)
+console.setFormatter(formatter)
+logging.getLogger("").addHandler(console)
 log = logging.getLogger()
 if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
     BOT_SESSION = Config.ASSISTANT_SESSION
@@ -19,7 +35,7 @@ HEROKU_API = Config.HEROKU_API_KEY
 OWNER = Config.OWNER_ID
 Owner = OWNER
 gauth = GoogleAuth()
-AdminSettings = Owner
+AdminSettings = Config.AdminSettings
 DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
 USERBOT_VERSION = 0.1
@@ -80,5 +96,9 @@ async def get_bot():
 
 BASE = declarative_base()
 SESSION = mulaisql()
-setbot = Client(BOT_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN, workers=Config.ASSISTANT_W)
+setbot = Client(":memory:",api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN, workers=Config.ASSISTANT_W)
 naruto = Client(APP_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, workers=Config.BOT_W)
+async def edrep(msg: Message, **kwargs):
+    func = msg.edit_text if msg.from_user.is_self else msg.reply
+    spec = getfullargspec(func.__wrapped__).args
+    await func(**{k: v for k, v in kwargs.items() if k in spec})
