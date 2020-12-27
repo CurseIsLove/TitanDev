@@ -2,7 +2,7 @@ from naruto import USERBOT_LOAD, USERBOT_NOLOAD, log
 import sys
 from os.path import dirname
 from typing import List
-
+import time
 
 def __list_all_modules():
     from os.path import dirname, basename, isfile
@@ -40,3 +40,9 @@ __all__ = ['ROOT', 'get_all_plugins']
 ALL_MODULES = sorted(__list_all_modules())
 log.info("Userbot module loaded: %s", str(ALL_MODULES))
 __all__ = ALL_MODULES + ["ALL_MODULES"]
+async def ping_it(_ , message):
+    start_t = time.time()
+    rm = await message.reply_text("...")
+    end_t = time.time()
+    time_taken_s = (end_t - start_t) * 1000
+    await rm.edit(f"Pong!\n{time_taken_s:.3f} ms")
