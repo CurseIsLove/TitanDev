@@ -1,4 +1,4 @@
-from . import ping
+from time import time
 from naruto import naruto , AdminSettings , Command
 from pyrogram import filters
 
