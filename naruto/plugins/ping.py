@@ -2,7 +2,7 @@ import time
 from naruto import naruto
 
 @naruto.on_message(filters.command(filters.user(AdminSettings) & ("ping", Command))
-async def ping(_, message):
+async def ping_it(_ , message):
     start_t = time.time()
     rm = await message.reply_text("...")
     end_t = time.time()
