@@ -14,7 +14,7 @@ class Config:
     HU_STRING_SESSION = os.environ.get("HU_STRING_SESSION", None)
     ASSISTANT_SESSION = os.environ.get("ASSISTANT_SESSION")
     OWNER_ID = tuple(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "0").split())))
-    AdminSettings = [int(x) for x in (os.environ.get("AdminSettings", "").split()]
+    AdminSettings = [int(x) for x in (os.environ.get("AdminSettings", "")).split()]
     LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
     DB_URI = os.environ.get("DATABASE_URL", None)
     BOT_IMG = os.environ.get("BOT_IMG", None)
