@@ -38,8 +38,7 @@ BLACKLIST = ["hack", "fuck", "bitch", "pubg", "sex"]
 
 @naruto.on_message(~filters.me & filters.private & ~filters.bot)
 async def pm_block(client, message):
-    if not PM_PERMIT:
-        return
+   
     if not get_whitelist(message.chat.id):
         await client.read_history(message.chat.id)
         if message.text:
