@@ -127,7 +127,7 @@ async def pm_button(client, query):
         await naruto.block_user(query.from_user.id)
     elif re.match("engine_pm_nope", query.data):
         await setbot.edit_inline_text(query.inline_message_id, "👍")
-        await naruo.send_message(
+        await nartuo.send_message(
             query.from_user.id,
             "Hello, please wait for a reply from my master, thank you",
         )
