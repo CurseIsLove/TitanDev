@@ -8,7 +8,7 @@ from io import StringIO
 
 from pyrogram import filters
 
-from naruto import Command, app, edrep, AdminSettings
+from naruto import Command, naruto, edrep, AdminSettings
 from naruto.helpers.deldog import deldog
 from naruto.helpers.parser import mention_markdown
 from naruto.helpers.aiohttp_helper import AioHttp
@@ -48,7 +48,7 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-@app.on_message(filters.me & filters.command("reveal", Command))
+@naruto.on_message(filters.me & filters.command("reveal", Command))
 async def sd_reveal(client, message):
     cmd = message.command
     self_tag = " ".join(cmd[1:])
@@ -57,7 +57,7 @@ async def sd_reveal(client, message):
         await message.delete()
         return
     await message.delete()
-    a = "nana/file.png"
+    a = "naruto/file.png"
     await client.download_media(message.reply_to_message.photo, file_name=a)
     if tags:
         await client.send_photo("me", a)
@@ -67,7 +67,7 @@ async def sd_reveal(client, message):
     os.remove(a)
 
 
-@app.on_message(
+@naruto.on_message(
     filters.user(AdminSettings)
     & ~filters.forwarded
     & ~filters.via_bot
@@ -121,7 +121,7 @@ async def executor(client, message):
         await edrep(message, text=final_output)
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("ip", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("ip", Command))
 async def public_ip(_, message):
     j = await AioHttp().get_json("http://ip-api.com/json")
     stats = f"**ISP {j['isp']}:**\n"
@@ -135,7 +135,7 @@ async def public_ip(_, message):
     await edrep(message, text=stats, parse_mode="markdown")
 
 
-@app.on_message(
+@naruto.on_message(
     filters.user(AdminSettings)
     & ~filters.forwarded
     & ~filters.via_bot
@@ -197,16 +197,16 @@ async def terminal(client, message):
         output = None
     if output:
         if len(output) > 4096:
-            with open("nana/cache/output.txt", "w+") as file:
+            with open("naruto/cache/output.txt", "w+") as file:
                 file.write(output)
                 file.close()
             await client.send_document(
                 message.chat.id,
-                "nana/cache/output.txt",
+                "naruto/cache/output.txt",
                 reply_to_message_id=message.message_id,
                 caption="`Output file`",
             )
-            os.remove("nana/cache/output.txt")
+            os.remove("naruto/cache/output.txt")
             return
         await edrep(
             message,
@@ -220,9 +220,9 @@ async def terminal(client, message):
         )
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command(["log"], Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command(["log"], Command))
 async def log(_, message):
-    f = open("nana/logs/error.log", "r")
+    f = open("naruto/logs/error.log", "r")
     data = await deldog(f.read())
     await edrep(
         message,
@@ -231,7 +231,7 @@ async def log(_, message):
     )
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("dc", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("dc", Command))
 async def dc_id_check(_, message):
     user = message.from_user
     if message.reply_to_message:
@@ -275,7 +275,7 @@ async def dc_id_check(_, message):
     await edrep(message, text=text)
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("id", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("id", Command))
 async def get_id(_, message):
     file_id = None
     user_id = None
