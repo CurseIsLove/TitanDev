@@ -67,10 +67,10 @@ async def start(_, message):
             [
                 [
                     InlineKeyboardButton(
-                        text=tld("help_btn"), callback_data="help_back"
+                        text=("help_btn"), callback_data="help_back"
                     ),
                     InlineKeyboardButton(
-                        tld("language_btn"), callback_data="set_lang_"
+                        ("language_btn"), callback_data="set_lang_"
                     ),
                 ]
             ]
