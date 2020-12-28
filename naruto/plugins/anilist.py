@@ -64,7 +64,7 @@ def t(milliseconds: int) -> str:
     return tmp[:-2]
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("airing", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("airing", Command))
 async def anime_airing(_, message):
     search_str = message.text.split(" ", 1)
     if len(search_str) == 1:
@@ -81,7 +81,7 @@ async def anime_airing(_, message):
     await edrep(message, text=ms_g)
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("anime", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("anime", Command))
 async def anime_search(client, message):
     cmd = message.command
     mock = ""
@@ -103,7 +103,7 @@ async def anime_search(client, message):
     )
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("character", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("character", Command))
 async def character_search(client, message):
     search = message.text.split(" ", 1)
     if len(search) == 1:
@@ -126,7 +126,7 @@ async def character_search(client, message):
             await edrep(message, text=ms_g)
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("manga", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("manga", Command))
 async def manga_search(client, message):
     search = message.text.split(" ", 1)
     if len(search) == 1:
@@ -172,7 +172,7 @@ async def manga_search(client, message):
             await edrep(message, text=ms_g)
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("favourite", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("favourite", Command))
 async def favourite_animelist(client, message):
     x = await client.get_inline_bot_results(f"{BotUsername}", "favourite")
     await message.delete()
