@@ -1,6 +1,6 @@
 from asyncio import sleep
 from pyrogram import filters
-from nana import app, Command, AdminSettings, edrep
+from naruto import app, Command, AdminSettings, edrep
 
 __MODULE__ = "Quotly"
 __HELP__ = """
