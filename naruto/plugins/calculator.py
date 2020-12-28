@@ -1,7 +1,7 @@
 from currency_converter import CurrencyConverter
 from pyrogram import filters
 
-from nana import app, Command, AdminSettings, edrep
+from naruto import app, Command, AdminSettings, edrep
 
 __MODULE__ = "Calculator"
 __HELP__ = """
