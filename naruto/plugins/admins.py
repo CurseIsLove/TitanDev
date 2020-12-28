@@ -13,9 +13,9 @@ from pyrogram.errors import (
     FloodWait,
 )
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 from naruto.helpers.admincheck import admin_check
-from naruto.tr_engine.strings import tld
+
 
 
 __MODULE__ = "Admin"
@@ -54,7 +54,7 @@ Generate Invite link
 Reply a message to pin in the Group
 __Supported pin types__: `alert`, `notify`, `loud`
 ──「 **Deleted Account** 」──
--> `delacc` or `delacc clean`
+-> `zombies` or `zombies clean`
 Checks Group for deleted accounts & clean them
 """
 
@@ -103,7 +103,7 @@ unmute_permissions = ChatPermissions(
 )
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("unpin", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("unpin", Command))
 async def unpin_message(client, message):
     if message.chat.type in ["group", "supergroup"]:
         chat_id = message.chat.id
@@ -124,19 +124,19 @@ async def unpin_message(client, message):
                 return
 
             except ChatAdminRequired:
-                await edrep(message, text=tld("denied_permission"))
+                await edrep(message, text=("denied_permission"))
                 return
 
             except Exception as e:
                 await edrep(message, text=f"`Error!`\n**Log:** `{e}`")
                 return
         else:
-            await edrep(message, text=tld("denied_permission"))
+            await edrep(message, text=("denied_permission"))
     else:
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("invite", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("invite", Command))
 async def invite_link(client, message):
     if message.chat.type in ["group", "supergroup"]:
         chat_name = message.chat.title
@@ -144,15 +144,15 @@ async def invite_link(client, message):
         if can_invite:
             try:
                 link = await client.export_chat_invite_link(message.chat.id)
-                await edrep(message, text=tld("invite_link").format(chat_name, link))
+                await edrep(message, text=("invite_link").format(chat_name, link))
             except Exception as e:
                 print(e)
-                await edrep(message, text=tld("denied_permission"))
+                await edrep(message, text=("denied_permission"))
     else:
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("pin", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("pin", Command))
 async def pin_message(client, message):
     if message.chat.type in ["group", "supergroup"]:
         can_pin = await admin_check(message)
@@ -172,21 +172,21 @@ async def pin_message(client, message):
                         disable_notification=disable_notification,
                     )
                 else:
-                    await edrep(message, text=tld("pin_message"))
+                    await edrep(message, text=("pin_message"))
                     await asyncio.sleep(5)
                 await message.delete()
             except Exception as e:
                 await edrep(message, text="`Error!`\n" f"**Log:** `{e}`")
                 return
         else:
-            await edrep(message, text=tld("denied_permission"))
+            await edrep(message, text=("denied_permission"))
             await asyncio.sleep(5)
             await message.delete()
     else:
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("mute", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("mute", Command))
 async def mute_hammer(client, message):
     if message.chat.type in ["group", "supergroup"]:
         can_mute = await admin_check(message)
@@ -211,12 +211,12 @@ async def mute_hammer(client, message):
                 await edrep(message, text="`Error!`\n" f"**Log:** `{e}`")
                 return
         else:
-            await edrep(message, text=tld("denied_permission"))
+            await edrep(message, text=("denied_permission"))
     else:
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("unmute", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("unmute", Command))
 async def unmute(client, message):
     if message.chat.type in ["group", "supergroup"]:
         can_unmute = await admin_check(message)
@@ -238,7 +238,7 @@ async def unmute(client, message):
                 )
                 await message.delete()
             except ChatAdminRequired:
-                await edrep(message, text=tld("denied_permission"))
+                await edrep(message, text=("denied_permission"))
                 return
             except Exception as e:
                 await edrep(message, text="`Error!`\n" f"**Log:** `{e}`")
@@ -247,7 +247,7 @@ async def unmute(client, message):
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("kick", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("kick", Command))
 async def kick_user(client, message):
     if message.chat.type in ["group", "supergroup"]:
         chat_id = message.chat.id
@@ -269,18 +269,18 @@ async def kick_user(client, message):
                 )
                 await message.delete()
             except ChatAdminRequired:
-                await edrep(message, text=tld("denied_permission"))
+                await edrep(message, text=("denied_permission"))
                 return
             except Exception as e:
                 await edrep(message, text="`Error!`\n" f"**Log:** `{e}`")
                 return
         else:
-            await edrep(message, text=tld("denied_permission"))
+            await edrep(message, text=("denied_permission"))
     else:
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("ban", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("ban", Command))
 async def ban_usr(client, message):
     if message.chat.type in ["group", "supergroup"]:
         chat_id = message.chat.id
@@ -327,7 +327,7 @@ async def ban_usr(client, message):
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("unban", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("unban", Command))
 async def unban_usr(client, message):
     if message.chat.type in ["group", "supergroup"]:
         chat_id = message.chat.id
@@ -369,7 +369,7 @@ async def unban_usr(client, message):
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("promote", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("promote", Command))
 async def promote_usr(client, message):
     if message.chat.type in ["group", "supergroup"]:
         cmd = message.command
@@ -405,23 +405,23 @@ async def promote_usr(client, message):
                     )
                     await message.delete()
                 except UsernameInvalid:
-                    await edrep(message, text=tld("user_invalid"))
+                    await edrep(message, text=("user_invalid"))
                     await asyncio.sleep(5)
                     await message.delete()
                     return
                 except PeerIdInvalid:
-                    await edrep(message, text=tld("peer_invalid"))
+                    await edrep(message, text=("peer_invalid"))
                     await asyncio.sleep(5)
                     await message.delete()
                     return
                 except UserIdInvalid:
-                    await edrep(message, text=tld("id_invalid"))
+                    await edrep(message, text=("id_invalid"))
                     await asyncio.sleep(5)
                     await message.delete()
                     return
 
                 except ChatAdminRequired:
-                    await edrep(message, text=tld("denied_permission"))
+                    await edrep(message, text=("denied_permission"))
                     await asyncio.sleep(5)
                     await message.delete()
                     return
@@ -431,14 +431,14 @@ async def promote_usr(client, message):
                     return
 
         else:
-            await edrep(message, text=tld("denied_permission"))
+            await edrep(message, text=("denied_permission"))
             await asyncio.sleep(5)
             await message.delete()
     else:
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("demote", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("demote", Command))
 async def demote_usr(client, message):
     if message.chat.type in ["group", "supergroup"]:
         chat_id = message.chat.id
@@ -465,7 +465,7 @@ async def demote_usr(client, message):
                 )
                 await message.delete()
             except ChatAdminRequired:
-                await edrep(message, text=tld("denied_permission"))
+                await edrep(message, text=("denied_permission"))
                 await asyncio.sleep(5)
                 await message.delete()
                 return
@@ -477,7 +477,7 @@ async def demote_usr(client, message):
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("lock", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("lock", Command))
 async def lock_permission(client, message):
     """module that locks group permissions"""
     if message.chat.type in ["group", "supergroup"]:
@@ -509,12 +509,12 @@ async def lock_permission(client, message):
         if lock_type == "all":
             try:
                 await client.set_chat_permissions(chat_id, ChatPermissions())
-                await edrep(message, text=tld("lock_all"))
+                await edrep(message, text=("lock_all"))
                 await asyncio.sleep(5)
                 await message.delete()
 
             except Exception as e:
-                await edrep(message, text=tld("denied_permission"))
+                await edrep(message, text=("denied_permission"))
             return
 
         if lock_type == "messages":
@@ -583,7 +583,7 @@ async def lock_permission(client, message):
                     can_pin_messages=pin,
                 ),
             )
-            await edrep(message, text=tld("lock_chat").format(perm))
+            await edrep(message, text=("lock_chat").format(perm))
             await asyncio.sleep(5)
             await message.delete()
         except Exception as e:
@@ -594,7 +594,7 @@ async def lock_permission(client, message):
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("unlock", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("unlock", Command))
 async def unlock_permission(client, message):
     """this module unlocks group permission for admins"""
     if message.chat.type in ["group", "supergroup"]:
@@ -655,13 +655,13 @@ async def unlock_permission(client, message):
                         can_add_web_page_previews=True,
                     ),
                 )
-                await edrep(message, text=tld("unlock_all"))
+                await edrep(message, text=("unlock_all"))
                 await asyncio.sleep(5)
                 await message.delete()
 
             except Exception as e:
                 print(e)
-                await edrep(message, text=tld("denied_permission"))
+                await edrep(message, text=("denied_permission"))
             return
 
         if unlock_type == "msg":
@@ -709,7 +709,7 @@ async def unlock_permission(client, message):
             uperm = "pin"
 
         else:
-            await edrep(message, text=tld("unlock_invalid"))
+            await edrep(message, text=("unlock_invalid"))
             await asyncio.sleep(5)
             await message.delete()
             return
@@ -731,7 +731,7 @@ async def unlock_permission(client, message):
                     can_pin_messages=upin,
                 ),
             )
-            await edrep(message, text=tld("unlock_chat").format(uperm))
+            await edrep(message, text=("unlock_chat").format(uperm))
             await asyncio.sleep(5)
             await message.delete()
 
@@ -741,7 +741,7 @@ async def unlock_permission(client, message):
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("vlock", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("vlock", Command))
 async def view_perm(client, message):
     """view group permission."""
     if message.chat.type in ["group", "supergroup"]:
@@ -781,7 +781,7 @@ async def view_perm(client, message):
             try:
                 await edrep(
                     message,
-                    text=tld("permission_view_str").format(
+                    text=("permission_view_str").format(
                         vmsg,
                         vmedia,
                         vstickers,
@@ -801,7 +801,7 @@ async def view_perm(client, message):
         await message.delete()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("delacc", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("zombies", Command))
 async def deleted_clean(client, message):
     cmd = message.command
     chat_id = message.chat.id
@@ -844,7 +844,7 @@ async def deleted_clean(client, message):
             )
 
         else:
-            await edrep(message, text=tld("denied_permission"))
+            await edrep(message, text=("denied_permission"))
 
     else:
         async for member in client.iter_chat_members(chat_id):
