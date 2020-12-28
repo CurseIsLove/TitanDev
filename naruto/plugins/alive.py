@@ -2,7 +2,7 @@ import time
 
 from pyrogram import filters
 
-from naruto import setbot, AdminSettings, BotUsername, app, Command, OwnerUsername
+from naruto import setbot, AdminSettings, BotUsername, naruto, Command, OwnerUsername
 from naruto import StartTime
 from naruto.helpers.PyroHelpers import ReplyCheck
 from naruto.assistant.__main__ import dynamic_data_filter
@@ -37,7 +37,7 @@ def get_readable_time(seconds: int) -> str:
 async def alivemsg_callback(client, query):
     start_time = time.time()
     uptime = get_readable_time((time.time() - StartTime))
-    reply_msg = f"{OwnerUsername}@nana-remix\n"
+    reply_msg = f"{OwnerUsername}@titan\n"
     reply_msg += "------------------\n"
     end_time = time.time()
     ping_time = round((end_time - start_time) * 1000, 3)
@@ -46,7 +46,7 @@ async def alivemsg_callback(client, query):
     await client.answer_callback_query(query.id, reply_msg, show_alert=True)
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("alive", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("alive", Command))
 async def google_search(client, message):
     x = await client.get_inline_bot_results(f"{BotUsername}", "alive")
     await message.delete()
