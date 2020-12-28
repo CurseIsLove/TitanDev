@@ -108,8 +108,6 @@ pm_filter = filters.create(pm_button_callback)
 @setbot.on_callback_query(pm_filter)
 async def pm_button(client, query):
     print(query)
-    if not PM_PERMIT:
-        return
     if (
         query.from_user.id in AdminSettings
         and not re.match("engine_pm_apr", query.data)
@@ -176,7 +174,7 @@ async def pm_button(client, query):
         await query.message.edit_text("That user was blocked ~")
         await naruto.send_message(
             target,
-            "Hello, this is **Nana**, my master has decide to block you.\nSorry for this!",
+            "Hello, this is **titan**, my master has decide to block you.\nSorry for this!",
         )
         await naruto.block_user(target)
     else:
