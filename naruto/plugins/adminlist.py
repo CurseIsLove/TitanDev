@@ -2,9 +2,8 @@ import html
 
 from pyrogram import filters
 
-from naruto import app, Command, edrep
+from naruto import naruto, Command, edrep
 from naruto.helpers.parser import mention_html, mention_markdown
-from naruto.tr_engine.strings import tld
 
 __MODULE__ = "Admin List"
 __HELP__ = """
@@ -24,7 +23,7 @@ Check all bots in spesific chat or current chat
 """
 
 
-@app.on_message(filters.me & filters.command(["admins", "adminlist"], Command))
+@naruto.on_message(filters.me & filters.command(["admins", "adminlist"], Command))
 async def adminlist(client, message):
     creator = []
     admin = []
@@ -70,21 +69,21 @@ async def adminlist(client, message):
             await message.reply(message.chat.id, teks, reply_to_message_id=replyid)
             teks = ""
             toolong = True
-    teks += tld("adminlist_three").format(len(badmin))
+    teks += ("adminlist_three").format(len(badmin))
     for x in badmin:
         teks += "│ • {}\n".format(x)
         if len(teks) >= 4096:
             await message.reply(message.chat.id, teks, reply_to_message_id=replyid)
             teks = ""
             toolong = True
-    teks += tld("adminlist_four").format(totaladmins)
+    teks += ("adminlist_four").format(totaladmins)
     if toolong:
         await message.reply(message.chat.id, teks, reply_to_message_id=replyid)
     else:
         await edrep(message, text=teks)
 
 
-@app.on_message(filters.me & filters.command("reportadmins", Command))
+@naruto.on_message(filters.me & filters.command("reportadmins", Command))
 async def report_admin(client, message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -104,14 +103,14 @@ async def report_admin(client, message):
             teks = "{}".format(text)
         else:
             user = message.reply_to_message.from_user
-            teks = tld("reportadmins_one").format(
+            teks = ("reportadmins_one").format(
                 mention_html(user.id, user.first_name)
             )
     else:
         if text:
             teks = "{}".format(html.escape(text))
         else:
-            teks = tld("reportadmins_two").format(grup.title)
+            teks = ("reportadmins_two").format(grup.title)
     teks += "".join(admin)
     if message.reply_to_message:
         await client.send_message(
@@ -124,7 +123,7 @@ async def report_admin(client, message):
         await client.send_message(message.chat.id, teks, parse_mode="html")
 
 
-@app.on_message(filters.me & filters.command("tagall", Command))
+@naruto.on_message(filters.me & filters.command("tagall", Command))
 async def tag_all_users(client, message):
     if len(message.text.split()) >= 2:
         text = message.text.split(None, 1)[1]
@@ -146,7 +145,7 @@ async def tag_all_users(client, message):
     await message.delete()
 
 
-@app.on_message(filters.me & filters.command("botlist", Command))
+@naruto.on_message(filters.me & filters.command("botlist", Command))
 async def get_list_bots(client, message):
     replyid = None
     if len(message.text.split()) >= 2:
@@ -164,14 +163,14 @@ async def get_list_bots(client, message):
         except:
             nama = a.user.first_name
         if nama is None:
-            nama = tld("botlist_one")
+            nama = ("botlist_one")
         if a.user.is_bot:
             bots.append(mention_markdown(a.user.id, nama))
     teks = tld("botlist_two").format(grup.title)
     teks += tld("botlist_three")
     for x in bots:
         teks += "│ • {}\n".format(x)
-    teks += tld("botlist_four").format(len(bots))
+    teks += ("botlist_four").format(len(bots))
     if replyid:
         await client.send_message(message.chat.id, teks, reply_to_message_id=replyid)
     else:
