@@ -2,7 +2,7 @@ import asyncio
 
 from pyrogram import filters
 
-from naruto import Command, app, AdminSettings, edrep
+from naruto import Command, naruto, AdminSettings, edrep
 from naruto.helpers.aiohttp_helper import AioHttp
 
 __MODULE__ = "Covid"
@@ -14,7 +14,7 @@ Check info of cases corona virus disease 2019
 """
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("covid", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("covid", Command))
 async def corona(_, message):
     args = message.text.split(None, 1)
     if len(args) == 1:
