@@ -3,7 +3,7 @@ import re
 
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings, BotUsername, edrep, Owner, setbot
+from naruto import naruto, Command, AdminSettings, BotUsername, edrep, Owner, setbot
 from naruto.helpers.PyroHelpers import ReplyCheck
 from naruto.helpers.sauce import airing_sauce, character_sauce, manga_sauce
 from naruto.plugins.database import anime_db as sql
