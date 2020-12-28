@@ -146,7 +146,7 @@ def dynamic_data_filter(data):
 @setbot.on_callback_query(dynamic_data_filter("hide_number"))
 async def get_myself_btn(client, query):
     try:
-        me = await app.get_me()
+        me = await naruto.get_me()
     except ConnectionError:
         await client.answer_callback_query(
             query.id, "Bot is currently turned off!", show_alert=True
