@@ -1,7 +1,7 @@
 from currency_converter import CurrencyConverter
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 
 __MODULE__ = "Calculator"
 __HELP__ = """
@@ -32,7 +32,7 @@ def convert_c(celsius):
     return cel
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("curr", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("curr", Command))
 async def evaluation_curr(_, message):
     if len(message.text.split()) <= 3:
         await edrep(message, text="Usage: `curr 100 USD IDR`")
@@ -48,7 +48,7 @@ async def evaluation_curr(_, message):
         await edrep(message, text=str(err))
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("temp", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("temp", Command))
 async def evaluation_temp(_, message):
     if len(message.text.split()) <= 2:
         await edrep(message, text="Usage: `temp 30 C` or `temp 60 F`")
