@@ -1,6 +1,6 @@
 from asyncio import sleep
 from pyrogram import filters
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 
 __MODULE__ = "Quotly"
 __HELP__ = """
@@ -11,7 +11,7 @@ __Reply To Message Text To Create Quote Sticker.__
 """
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("q", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("q", Command))
 async def q_maker(_, message):
     if not message.reply_to_message:
         await edrep(message, text="**Reply to any users text message**")
