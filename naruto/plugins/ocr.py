@@ -1,7 +1,7 @@
 import os
 import requests
 from pyrogram import filters
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 
 
 __MODULE__ = "OCR"
@@ -33,7 +33,7 @@ async def ocr_space_file(
     return r.json()
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("ocr", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("ocr", Command))
 async def ocr(client, message):
     cmd = message.command
     lang_code = ""
