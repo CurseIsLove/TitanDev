@@ -1,7 +1,7 @@
 from gpytranslate import Translator
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 
 trl = Translator()
 
@@ -17,7 +17,7 @@ Reply a message to translate that.
 """
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("tr", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("tr", Command))
 async def translate(_, message):
     trl = Translator()
     if message.reply_to_message and (
