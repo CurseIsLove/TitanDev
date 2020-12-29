@@ -3,7 +3,7 @@ import aiohttp
 import os
 
 from pyrogram import filters
-from naruto import Command, app, AdminSettings, edrep
+from naruto import Command, naruto, AdminSettings, edrep
 from naruto.helpers.aiohttp_helper import AioHttp
 
 __MODULE__ = "Nekobin"
@@ -14,7 +14,7 @@ Create a Nekobin paste using replied to message.
 """
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("neko", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("neko", Command))
 async def paste(client, message):
     if message.reply_to_message:
         text = message.reply_to_message.text
@@ -65,7 +65,7 @@ async def paste(client, message):
             )
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command(["gpaste"], Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command(["gpaste"], Command))
 async def get_paste_(_, message):
     """fetches the content of a dogbin or nekobin URL."""
     link = message.reply_to_message.text
