@@ -3,7 +3,7 @@ from glob import glob
 from mega import Mega
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 
 __MODULE__ = "Mega"
 __HELP__ = """
@@ -22,7 +22,7 @@ async def megadl(url):
     mega.download_url(url, "titan/downloads/mega")
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command(["mega"], Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command(["mega"], Command))
 async def mega_download(_, message):
     args = message.text.split(None, 1)
     if len(args) == 1:
