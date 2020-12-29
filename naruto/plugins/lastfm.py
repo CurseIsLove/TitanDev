@@ -1,6 +1,6 @@
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings
+from naruto import naruto, Command, AdminSettings
 from naruto.helpers.PyroHelpers import ReplyCheck
 
 __HELP__ = """
