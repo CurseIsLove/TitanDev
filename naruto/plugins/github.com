@@ -10,7 +10,7 @@ from random import randint
 
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 from naruto.helpers.PyroHelpers import ReplyCheck
 from naruto.helpers.aiohttp_helper import AioHttp
 
@@ -23,7 +23,7 @@ Finding information about a github user.
 """
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("git", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("git", Command))
 async def github(client, message):
     if len(message.text.split()) == 1:
         await edrep(message, text="Usage: `git (username)`")
