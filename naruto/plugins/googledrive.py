@@ -8,7 +8,7 @@ from pydrive.drive import GoogleDrive
 from pyrogram import filters
 
 from naruto import (
-    app,
+    naruto,
     setbot,
     Command,
     gauth,
@@ -48,7 +48,7 @@ async def get_drivedir(drive):
         if drivefolders["title"] == "Nana Drive":
             return drivefolders["id"]
     mkdir = drive.CreateFile(
-        {"title": "Nana Drive", "mimeType": "application/vnd.google-apps.folder"}
+        {"title": "Naruto Drive", "mimeType": "application/vnd.google-apps.folder"}
     )
     mkdir.Upload()
 
@@ -75,7 +75,7 @@ async def get_driveinfo(driveid):
     return cleanhtml(str(getdrivename.find("title"))).split(" - ")[0]
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("credentials", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("credentials", Command))
 async def credentials(_, message):
     args = message.text.split(None, 1)
     if len(args) == 1:
@@ -88,9 +88,9 @@ async def credentials(_, message):
         return
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("gdrive", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("gdrive", Command))
 async def gdrive_stuff(client, message):
-    gauth.LoadCredentialsFile("nana/session/drive")
+    gauth.LoadCredentialsFile("naruto/session/drive")
     if gauth.credentials is None:
         if ENV and gdrive_credentials:
             with open("client_secrets.json", "w") as file:
