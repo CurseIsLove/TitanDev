@@ -1,7 +1,7 @@
 import asyncio
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 from naruto.helpers.aiohttp_helper import AioHttp
 
 
@@ -13,7 +13,7 @@ Search dictionary for given words
 __MODULE__ = "Dictionary"
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("dic", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("dic", Command))
 async def dictionary(_, message):
     cmd = message.command
     input_ = ""
