@@ -44,6 +44,19 @@ async def get_button_settings():
     return InlineKeyboardMarkup(list_button)
 
 
+@setbot.on_message(
+    filters.user(AdminSettings) &
+    filters.command(["settings"]) &
+    filters.private
+)
+async def settings(_, message):
+    text = await get_text_settings()
+    button = await get_button_settings()
+    if BOT_IMG:
+        await message.reply_photo(BOT, caption=text, reply_markup=button)
+    else:
+        await message.reply(text, reply_markup=button)
+
 @setbot.on_callback_query(filters.regex("^toggle_startbot"))
 async def start_stop_bot(client, query):
     try:
