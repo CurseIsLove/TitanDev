@@ -2,7 +2,7 @@ import asyncio
 
 from pyrogram import filters
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 
 
 __MODULE__ = "Deezer"
@@ -14,7 +14,7 @@ Search a track on Deezer and send into a chat
 """
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("music", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("music", Command))
 async def send_music(client, message):
     try:
         cmd = message.command
