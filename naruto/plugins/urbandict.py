@@ -1,7 +1,7 @@
 from pyrogram import filters
 from asyncio import sleep
 
-from naruto import app, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep
 from naruto.helpers.string import replace_text
 from naruto.helpers.aiohttp_helper import AioHttp
 
@@ -14,7 +14,7 @@ Search urban for dictionary
 """
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("ud", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("ud", Command))
 async def urban_dictionary(_, message):
     if len(message.text.split()) == 1:
         await edrep(message, text="Usage: `ud example`")
