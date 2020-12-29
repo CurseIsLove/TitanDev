@@ -3,7 +3,7 @@ from asyncio import sleep
 
 from removebg import RemoveBg
 from pyrogram import filters
-from naruto import app, Command, remove_bg_api, AdminSettings, edrep
+from naruto import naruto, Command, remove_bg_api, AdminSettings, edrep
 from naruto.helpers.PyroHelpers import ReplyCheck
 
 DOWN_PATH = "titan/"
@@ -11,7 +11,7 @@ DOWN_PATH = "titan/"
 IMG_PATH = DOWN_PATH + "image.jpg"
 
 
-@app.on_message(filters.user(AdminSettings) & filters.command("rmbg", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("rmbg", Command))
 async def remove_bg(client, message):
     if not remove_bg_api:
         await edrep(
