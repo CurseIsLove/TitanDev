@@ -169,18 +169,18 @@ async def gdrive_stuff(client, message):
         download = drive.CreateFile({"id": driveid})
         download.GetContentFile(filename)
         try:
-            os.rename(filename, "nana/downloads/" + filename.replace(" ", "_"))
+            os.rename(filename, "naruto/downloads/" + filename.replace(" ", "_"))
         except FileExistsError:
-            os.rename(filename, "nana/downloads/" + filename.replace(" ", "_") + ".2")
+            os.rename(filename, "naruto/downloads/" + filename.replace(" ", "_") + ".2")
         await edrep(
             message,
             text="Downloaded!\nFile saved to `{}`".format(
-                "nana/downloads/" + filename.replace(" ", "_")
+                "naruto/downloads/" + filename.replace(" ", "_")
             ),
         )
     elif len(message.text.split()) == 3 and message.text.split()[1] == "upload":
         filerealname = message.text.split()[2].split(None, 1)[0]
-        filename = "nana/downloads/{}".format(filerealname.replace(" ", "_"))
+        filename = "naruto/downloads/{}".format(filerealname.replace(" ", "_"))
         checkfile = os.path.isfile(filename)
         if not checkfile:
             await edrep(message, text="File `{}` was not found!".format(filerealname))
@@ -252,7 +252,7 @@ async def gdrive_stuff(client, message):
                     nama = f"photo_{message.reply_to_message.photo.date}.png"
                 await client.download_media(
                     message.reply_to_message.photo,
-                    file_name="nana/downloads/" + nama,
+                    file_name="naruto/downloads/" + nama,
                     progress=lambda d, t: client.loop.create_task(
                 progressdl(d, t, message, c_time, "Downloading...")
             ),
@@ -267,7 +267,7 @@ async def gdrive_stuff(client, message):
                     )
                 await client.download_media(
                     message.reply_to_message.animation,
-                    file_name="nana/downloads/" + nama,
+                    file_name="naruto/downloads/" + nama,
                     progress=lambda d, t: client.loop.create_task(
                 progressdl(d, t, message, c_time, "Downloading...")
             ),
@@ -284,7 +284,7 @@ async def gdrive_stuff(client, message):
                     )
                 await client.download_media(
                     message.reply_to_message.video,
-                    file_name="nana/downloads/" + nama,
+                    file_name="naruto/downloads/" + nama,
                     progress=lambda d, t: client.loop.create_task(
                 progressdl(d, t, message, c_time, "Downloading...")
             ),
@@ -299,7 +299,7 @@ async def gdrive_stuff(client, message):
                     nama = f"{message.reply_to_message.caption}.webp".replace(" ", "_")
                 await client.download_media(
                     message.reply_to_message.sticker,
-                    file_name="nana/downloads/" + nama,
+                    file_name="naruto/downloads/" + nama,
                     progress=lambda d, t: client.loop.create_task(
                 progressdl(d, t, message, c_time, "Downloading...")
             ),
@@ -311,7 +311,7 @@ async def gdrive_stuff(client, message):
                     nama = "audio_{}.mp3".format(message.reply_to_message.audio.date)
                 await client.download_media(
                     message.reply_to_message.audio,
-                    file_name="nana/downloads/" + nama,
+                    file_name="naruto/downloads/" + nama,
                     progress=lambda d, t: client.loop.create_task(
                 progressdl(d, t, message, c_time, "Downloading...")
             ),
@@ -323,7 +323,7 @@ async def gdrive_stuff(client, message):
                     nama = "audio_{}.ogg".format(message.reply_to_message.voice.date)
                 await client.download_media(
                     message.reply_to_message.voice,
-                    file_name="nana/downloads/" + nama,
+                    file_name="naruto/downloads/" + nama,
                     progress=lambda d, t: client.loop.create_task(
                 progressdl(d, t, message, c_time, "Downloading...")
             ),
@@ -332,7 +332,7 @@ async def gdrive_stuff(client, message):
                 nama = "{}".format(message.reply_to_message.document.file_name)
                 await client.download_media(
                     message.reply_to_message.document,
-                    file_name="nana/downloads/" + nama,
+                    file_name="naruto/downloads/" + nama,
                     progress=lambda d, t: client.loop.create_task(
                 progressdl(d, t, message, c_time, "Downloading...")
             ),
