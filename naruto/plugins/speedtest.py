@@ -1,5 +1,5 @@
 from pyrogram import filters
-from naruto import setbot, AdminSettings, BotUsername, Command
+from naruto import naruto, setbot, AdminSettings, BotUsername, Command
 from naruto.helpers.PyroHelpers import ReplyCheck
 import speedtest
 import re
