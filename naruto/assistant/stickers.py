@@ -106,7 +106,7 @@ async def settings_sticker(_, message):
         await message.edit("Your database is not avaiable!")
         return
     global TEMP_KEYBOARD, USER_SET
-    await app.send_message("@Stickers", "/stats")
+    await naruto.send_message("@Stickers", "/stats")
     await asyncio.sleep(0.2)
     try:
         keyboard = await app.get_history("@Stickers", limit=1)
