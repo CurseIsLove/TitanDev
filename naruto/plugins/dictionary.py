@@ -2,7 +2,7 @@ import asyncio
 from pyrogram import filters
 
 from naruto import naruto, Command, AdminSettings, edrep
-from naruto.helpers.aiohttp_helper import AioHttp
+from naruto.utils.aiohttp_helper import AioHttp
 
 
 __HELP__ = """
