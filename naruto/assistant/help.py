@@ -88,7 +88,7 @@ async def help_command(client, message):
     await help_parser(
         client,
         message.chat.id,
-        tld("help_str").format(", ".join(COMMAND_PREFIXES))
+        ("help_str").format(", ".join(COMMAND_PREFIXES))
     )
 
 
@@ -129,7 +129,7 @@ async def help_button(_, query):
 
     elif back_match:
         await query.message.edit(
-            text=tld("help_str").format(", ".join(COMMAND_PREFIXES)),
+            text=("help_str").format(", ".join(COMMAND_PREFIXES)),
             reply_markup=InlineKeyboardMarkup(
                 paginate_modules(0, HELP_COMMANDS, "help")
             ),
