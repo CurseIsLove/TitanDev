@@ -36,6 +36,7 @@ OWNER = Config.OWNER_ID
 Owner = OWNER
 gauth = GoogleAuth()
 GDRIVE_CREDENTIALS = Config.GDRIVE_CREDENTIALS
+gdrive_credentials = Config.GDRIVE_CREDENTIALS
 AdminSettings = Config.AdminSettings
 DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
