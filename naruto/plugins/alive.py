@@ -48,7 +48,7 @@ async def alivemsg_callback(client, query):
 
 @naruto.on_message(filters.user(AdminSettings) & filters.command("alive", Command))
 async def google_search(client, message):
-    x = await client.get_inline_bot_results(f"{BotUsername}", "alive")
+    x = await client.get_inline_bot_results(f"{BotUsername}", "alive_message")
     await message.delete()
     await client.send_inline_bot_result(
         chat_id=message.chat.id,
