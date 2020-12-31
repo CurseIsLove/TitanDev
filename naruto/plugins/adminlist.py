@@ -3,7 +3,7 @@ import html
 from pyrogram import filters
 
 from naruto import naruto, Command, edrep
-from naruto.helpers.parser import mention_html, mention_markdown
+from naruto.utils.parser import mention_html, mention_markdown
 
 __MODULE__ = "Admin List"
 __HELP__ = """
