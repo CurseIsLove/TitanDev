@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import filters
 
 from naruto import Command, naruto, AdminSettings, edrep
-from naruto.helpers.aiohttp_helper import AioHttp
+from naruto.utils.aiohttp_helper import AioHttp
 
 __MODULE__ = "Covid"
 __HELP__ = """
