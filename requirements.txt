@@ -8,6 +8,7 @@ google-api-python-client
 google-auth-httplib2
 pyDownload==0.0.1.dev4
 google-auth-oauthlib
+pafy==0.5.5
 googletrans
 hachoir
 gpytranslate
