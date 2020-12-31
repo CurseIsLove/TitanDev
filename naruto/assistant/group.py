@@ -94,7 +94,7 @@ async def unpin_message(client, message):
             await edrep(message, text=("denied_permission"))
     else:
         await message.delete()
-@setbot.on_message(filters.user(filters.command("pin", Command) & filters.group)
+@setbot.on_message(filters.command("pin", "/") & filters.group)
 async def pin_message(client, message):
     if message.chat.type in ["group", "supergroup"]:
         can_pin = await admin_check(message)
