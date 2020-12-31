@@ -41,7 +41,7 @@ Here are some links for you
             InlineKeyboardButton(
                 "Repository", url="https://github.com/CurseIsLove/Titan"
             ),
-            InlineKeyboardButton("Support", url="https://t.me/tsupport"),
+            InlineKeyboardButton("Support", url="https://t.me/TitanSupportGroup"),
         ],
     ]
     await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
@@ -68,9 +68,11 @@ async def start(_, message):
                 [
                     InlineKeyboardButton(
                         text=("help_btn"), callback_data="help_back"
-                    ),
+                    )
+                 ]
+                 [
                     InlineKeyboardButton(
-                        ("language_btn"), callback_data="set_lang_"
+                        text=("join gang. kids stay away"), url="https://t.me/joinchat/WTnbBZsP-7TrRroX"
                     ),
                 ]
             ]
@@ -187,7 +189,7 @@ async def get_myself_btn(client, query):
 @setbot.on_callback_query(dynamic_data_filter("report_errors"))
 async def report_some_errors(client, query):
     await app.join_chat("@narutobotsupport")
-    text = "Hi @DeprecatedUser, i got an error for you.\nPlease take a look and fix it if possible.\n\nThank you ❤️"
+    text = "Hi @gym2105, i got an error for you.\nPlease take a look and fix it if possible.\n\nThank you ❤️"
     err = query.message.text
     open("naruto/cache/errors.txt", "w").write(err)
     await query.message.edit_reply_markup(reply_markup=None)
