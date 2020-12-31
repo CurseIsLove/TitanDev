@@ -73,7 +73,7 @@ async def whois(client, message):
         sleep(2)
         await message.delete()
         return
-[    desc = await client.get_chat(get_user)
+    desc = await client.get_chat(get_user)
     desc = desc.description
     common = await GetCommon(client, user.id)
 
