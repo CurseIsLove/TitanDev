@@ -40,6 +40,7 @@ class Config:
     WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", None)
     TZ_NUMBER = os.environ.get("TZ_NUMBER", 1)
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
+    screenshotlayer_API= os.environ.get("SCREENSHOT_LAYER_API", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     G_DRIVE_PARENT_ID = os.environ.get("G_DRIVE_PARENT_ID", None)
     G_DRIVE_INDEX_LINK = os.environ.get("G_DRIVE_INDEX_LINK", None)
