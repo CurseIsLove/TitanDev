@@ -3,7 +3,7 @@ from .settings import get_text_settings, get_button_settings
 from pyrogram import filters
 from pyrogram.types import ReplyKeyboardMarkup
 
-from naruto import setbot, AdminSettings, DB_AVAILABLE, naruto, Owner, NANA_IMG
+from naruto import setbot, AdminSettings, DB_AVAILABLE, naruto, Owner, BOT_IMG
 from naruto.assistant.database.stickers_db import set_sticker_set, set_stanim_set
 from naruto.assistant.__main__ import dynamic_data_filter
 
