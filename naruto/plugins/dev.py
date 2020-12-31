@@ -9,9 +9,9 @@ from io import StringIO
 from pyrogram import filters
 
 from naruto import Command, naruto, edrep, AdminSettings
-from naruto.helpers.deldog import deldog
-from naruto.helpers.parser import mention_markdown
-from naruto.helpers.aiohttp_helper import AioHttp
+from naruto.utils.deldog import deldog
+from naruto.utils.parser import mention_markdown
+from naruto.utils.aiohttp_helper import AioHttp
 
 __MODULE__ = "Devs"
 __HELP__ = """
