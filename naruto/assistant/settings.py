@@ -3,7 +3,7 @@ from platform import python_version
 from pyrogram import filters, errors
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from naruto import setbot, naruto, USERBOT_VERSION, ASSISTANT_VERSION, DB_AVAILABLE, HEROKU_API, Owner
+from naruto import AdminSettings, setbot, naruto, USERBOT_VERSION, ASSISTANT_VERSION, DB_AVAILABLE, HEROKU_API, Owner
 from naruto.__main__ import reload_userbot, restart_all
 from .theme.theme_helper import get_theme
 
@@ -43,6 +43,19 @@ async def get_button_settings():
         list_button.append([InlineKeyboardButton("Change Repo Source", callback_data="change_repo")])
     return InlineKeyboardMarkup(list_button)
 
+
+@setbot.on_message(
+    filters.user(AdminSettings) &
+    filters.command(["settings"]) &
+    filters.private
+)
+async def settings(_, message):
+    text = await get_text_settings()
+    button = await get_button_settings()
+    if BOT_IMG:
+        await message.reply_photo(BOT, caption=text, reply_markup=button)
+    else:
+        await message.reply(text, reply_markup=button)
 
 @setbot.on_callback_query(filters.regex("^toggle_startbot"))
 async def start_stop_bot(client, query):

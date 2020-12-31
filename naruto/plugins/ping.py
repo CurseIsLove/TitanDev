@@ -1,7 +1,8 @@
 import time
-from naruto import naruto
+from naruto import naruto , AdminSettings , Command
+from pyrogram import filters
 
-@naruto.on_message(filters.command(filters.user(AdminSettings) & ("ping", Command))
+@naruto.on_message(filters.user(AdminSettings) & filters.command("ping", Command))
 async def ping_it(_ , message):
     start_t = time.time()
     rm = await message.reply_text("...")

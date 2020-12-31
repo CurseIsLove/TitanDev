@@ -6,7 +6,7 @@ from naruto import Owner
 from naruto.__main__ import loop
 from naruto.assistant.database.custom_theme_db import get_list_costum_theme, get_custom_theme
 from naruto.assistant.database.theme_db import get_name_theme_set, is_custom_theme
-from naruto.helpers.aiohttp_helper import AioHttp
+from naruto.utils.aiohttp_helper import AioHttp
 
 cache_theme = {}
 

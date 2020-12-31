@@ -3,12 +3,16 @@ cowpy
 sqlalchemy==1.3.18
 dnspython
 emoji
+pytube
 gitpython
 google-api-python-client
 google-auth-httplib2
+pyDownload==0.0.1.dev4
 google-auth-oauthlib
+pafy==0.5.5
 googletrans
 hachoir
+gpytranslate
 heroku3
 html-telegraph-poster
 instaloader

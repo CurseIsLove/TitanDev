@@ -34,7 +34,11 @@ if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
 HEROKU_API = Config.HEROKU_API_KEY
 OWNER = Config.OWNER_ID
 Owner = OWNER
+ENV = False
 gauth = GoogleAuth()
+
+GDRIVE_CREDENTIALS = Config.GDRIVE_CREDENTIALS
+gdrive_credentials = Config.GDRIVE_CREDENTIALS
 AdminSettings = Config.AdminSettings
 DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
@@ -45,11 +49,17 @@ USERBOT_NOLOAD = ""
 ASSISTANT_LOAD = ""
 PM_PERMIT= Config.PM_PERMIT
 lydia_api= Config.lydia_api
+screenshotlayer_API = Config.screenshotlayer_API
+remove_bg_api = Config.REMOVE_BG_API_KEY
 ASSISTANT_NOLOAD = ""
+IBM_WATSON_CRED_PASSWORD = Config.IBM_WATSON_CRED_PASSWORD
+IBM_WATSON_CRED_URL = Config.IBM_WATSON_CRED_URL
 Command = (Config.Command)
+sw_api = Config.sw_api
+COMMAND_PREFIXES = (Config.Command)
 StartTime = time.time()
 BOT_IMG = Config.BOT_IMG
-# Postgresql
+# Postgresqlw5mj by
 def mulaisql() -> scoped_session:
     global DB_AVAILABLE
     engine = create_engine(Config.DB_URI, client_encoding="utf8")

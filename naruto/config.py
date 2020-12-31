@@ -32,7 +32,9 @@ class Config:
     INSTA_PASS = os.environ.get("INSTA_PASS")
     UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO")
     UPSTREAM_REMOTE = os.environ.get("UPSTREAM_REMOTE")
-    SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
+    sw_api = os.environ.get("SPAM_WATCH_API", None)
+    IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
+    IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
     CURRENCY_API = os.environ.get("CURRENCY_API", None)
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
     OPEN_WEATHER_MAP = os.environ.get("OPEN_WEATHER_MAP", None)
@@ -40,6 +42,7 @@ class Config:
     WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", None)
     TZ_NUMBER = os.environ.get("TZ_NUMBER", 1)
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
+    screenshotlayer_API= os.environ.get("SCREENSHOT_LAYER_API", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     G_DRIVE_PARENT_ID = os.environ.get("G_DRIVE_PARENT_ID", None)
     G_DRIVE_INDEX_LINK = os.environ.get("G_DRIVE_INDEX_LINK", None)
@@ -50,8 +53,7 @@ class Config:
     G_DRIVE_IS_TD = os.environ.get("G_DRIVE_IS_TD") == "true"
     ASSISTANT_W = int(os.environ.get("ASSISTANT_WORKER"))
     BOT_W = int(os.environ.get("BOT_WORKER"))
-    LOAD_UNOFFICIAL_PLUGINS = os.environ.get(
-        "LOAD_UNOFFICIAL_PLUGINS") == "true"
+    LOAD_UNOFFICIAL_PLUGINS = os.environ.get( "LOAD_UNOFFICIAL_PLUGINS") == "true"
     THUMB_PATH = DOWN_PATH + "thumb_image.jpg"
     TMP_PATH = "naruto/plugins/temp/"
     MAX_MESSAGE_LENGTH = 4096
@@ -67,6 +69,7 @@ class Config:
     ALLOWED_COMMANDS: Set[str] = set()
     ANTISPAM_SENTRY = False
     RUN_DYNO_SAVER = False
+    GDRIVE_CREDENTIALS = (os.environ.get("gdrive_credentials"))
     HEROKU_APP = heroku3.from_key(HEROKU_API_KEY).apps()[HEROKU_APP_NAME] \
         if HEROKU_API_KEY and HEROKU_APP_NAME else None
     STATUS = None
