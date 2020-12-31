@@ -1,6 +1,7 @@
 import html
 
 from pyrogram import filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from naruto import naruto, Command, edrep
 from naruto.utils.parser import mention_html, mention_markdown
