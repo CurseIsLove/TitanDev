@@ -200,4 +200,4 @@ async def upcoming(_client, message):
         rep += f"• <a href='{url}'>{name}</a>\n"
         if len(rep) > 1000:
             break
-    await message.edit(rep, parse_mode='html'
+    await message.edit(rep, parse_mode='html')
