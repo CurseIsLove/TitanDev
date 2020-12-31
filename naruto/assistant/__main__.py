@@ -69,12 +69,12 @@ async def start(_, message):
                     InlineKeyboardButton(
                         text=("help_btn"), callback_data="help_back"
                     )
-                 ]
+                 ],
                  [
                     InlineKeyboardButton(
                         text=("join gang. kids stay away"), url="https://t.me/joinchat/WTnbBZsP-7TrRroX"
                     ),
-                ]
+                ],
             ]
         )
         if BOT_IMG:
