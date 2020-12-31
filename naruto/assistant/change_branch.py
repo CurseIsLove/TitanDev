@@ -1,6 +1,6 @@
 from git import Repo
 from git.exc import GitCommandError
-from naruto import setbot, NANA_IMG
+from naruto import setbot, BOT_IMG
 from naruto.__main__ import restart_all
 from naruto.assistant.__main__ import dynamic_data_filter
 import re
