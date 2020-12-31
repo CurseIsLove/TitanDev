@@ -3,6 +3,7 @@ cowpy
 sqlalchemy==1.3.18
 dnspython
 emoji
+jikanpy==4.2.1
 pytube
 gitpython
 google-api-python-client
