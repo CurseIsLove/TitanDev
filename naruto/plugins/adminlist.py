@@ -55,14 +55,14 @@ async def adminlist(client, message):
     admin.sort()
     badmin.sort()
     totaladmins = len(creator) + len(admin) + len(badmin)
-    teks = tld("adminlist_one").format(grup.title)
+    teks = ("adminlist_one").format(grup.title)
     for x in creator:
         teks += "│ • {}\n".format(x)
         if len(teks) >= 4096:
             await message.reply(message.chat.id, teks, reply_to_message_id=replyid)
             teks = ""
             toolong = True
-    teks += tld("adminlist_two").format(len(admin))
+    teks += ("adminlist_two").format(len(admin))
     for x in admin:
         teks += "│ • {}\n".format(x)
         if len(teks) >= 4096:
@@ -166,8 +166,8 @@ async def get_list_bots(client, message):
             nama = ("botlist_one")
         if a.user.is_bot:
             bots.append(mention_markdown(a.user.id, nama))
-    teks = tld("botlist_two").format(grup.title)
-    teks += tld("botlist_three")
+    teks = ("botlist_two").format(grup.title)
+    teks += "botlist_three"
     for x in bots:
         teks += "│ • {}\n".format(x)
     teks += ("botlist_four").format(len(bots))
