@@ -3,7 +3,7 @@ from platform import python_version
 from pyrogram import filters, errors
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from naruto import BOT_IMG AdminSettings, setbot, naruto, USERBOT_VERSION, ASSISTANT_VERSION, DB_AVAILABLE, HEROKU_API, Owner
+from naruto import BOT_IMG, AdminSettings, setbot, naruto, USERBOT_VERSION, ASSISTANT_VERSION, DB_AVAILABLE, HEROKU_API, Owner
 from naruto.__main__ import reload_userbot, restart_all
 from .theme.theme_helper import get_theme
 
