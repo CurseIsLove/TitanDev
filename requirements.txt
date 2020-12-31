@@ -3,6 +3,7 @@ cowpy
 sqlalchemy==1.3.18
 dnspython
 emoji
+pytube
 gitpython
 google-api-python-client
 google-auth-httplib2
