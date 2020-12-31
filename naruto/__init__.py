@@ -49,6 +49,7 @@ ASSISTANT_LOAD = ""
 PM_PERMIT= Config.PM_PERMIT
 lydia_api= Config.lydia_api
 screenshotlayer_API = Config.screenshotlayer_API
+remove_bg_api = Config.remove_bg_api
 ASSISTANT_NOLOAD = ""
 Command = (Config.Command)
 sw_api = Config.sw_api
