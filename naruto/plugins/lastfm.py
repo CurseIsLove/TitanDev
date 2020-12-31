@@ -12,7 +12,7 @@ Note: you need to go to @lastfmrobot and set your username there
 __MODULE__ = "Last.FM"
 
 
-@app.on_message(
+@naruto.on_message(
     filters.user(AdminSettings) & filters.command(["lastfm", "lf"], Command)
 )
 async def lastfm(client, message):
