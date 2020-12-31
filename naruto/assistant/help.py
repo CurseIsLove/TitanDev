@@ -12,7 +12,7 @@ from naruto import (
     AdminSettings,
     COMMAND_PREFIXES,
     DB_AVAILABLE,
-    NANA_IMG,
+    BOT_IMG,
     BotUsername,
     naruto,
     StartTime,
