@@ -2,6 +2,8 @@ import asyncio
 import re
 
 from pyrogram import filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 
 from naruto import naruto, Command, AdminSettings, BotUsername, edrep, Owner, setbot
 from naruto.utils.PyroHelpers import ReplyCheck
