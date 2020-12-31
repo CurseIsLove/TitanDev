@@ -1,10 +1,9 @@
 from pyrogram import filters
-from naruto import setbot, AdminSettings, BotUsername, app, Command
+from naruto import setbot, AdminSettings, BotUsername, Command
 from naruto.helpers.PyroHelpers import ReplyCheck
 import speedtest
 import re
 
-from naruto.tr_engine.strings import tld
 
 
 def speedtest_callback(_, __, query):
