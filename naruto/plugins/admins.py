@@ -14,7 +14,7 @@ from pyrogram.errors import (
 )
 
 from naruto import naruto, Command, AdminSettings, edrep
-from naruto.helpers.admincheck import admin_check
+from naruto.utils.admincheck import admin_check
 
 
 
