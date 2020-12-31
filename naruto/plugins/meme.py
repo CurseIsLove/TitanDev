@@ -143,17 +143,19 @@ async def spam_stick(client, message):
         times = message.command[1]
         if message.chat.type in ["supergroup", "group"]:
             for _ in range(int(times)):
+                sticker=message.reply_to_message.sticker.file_id
                 await client.send_sticker(
                     message.chat.id,
-                    sticker=message.reply_to_message.sticker.file_id,
+                    sticker,
                     reply_to_message_id=ReplyCheck(message),
                 )
                 await asyncio.sleep(0.20)
 
         if message.chat.type == "private":
             for _ in range(int(times)):
+                sticker=message.reply_to_message.sticker.file_id
                 await client.send_message(
-                    message.chat.id, sticker=message.reply_to_message.sticker.file_id
+                    message.chat.id, sticker
                 )
                 await asyncio.sleep(0.20)
 
