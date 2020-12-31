@@ -14,7 +14,7 @@ from pyrogram.errors import (
     FloodWait,
 )
 
-from naruto import naruto, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep ,setbot
 from naruto.utils.admincheck import admin_check
 
 
@@ -63,7 +63,7 @@ unmute_permissions = ChatPermissions(
 )
 
 
-@naruto.on_message(filters.command("unpin", "/") & filters.group)
+@setbot.on_message(filters.command("unpin", "/") & filters.group)
 async def unpin_message(client, message):
     if message.chat.type in ["group", "supergroup"]:
         chat_id = message.chat.id
@@ -92,5 +92,37 @@ async def unpin_message(client, message):
                 return
         else:
             await edrep(message, text=("denied_permission"))
+    else:
+        await message.delete()
+@setbot.on_message(filters.user(filters.command("pin", Command) & filters.group)
+async def pin_message(client, message):
+    if message.chat.type in ["group", "supergroup"]:
+        can_pin = await admin_check(message)
+        if can_pin:
+            try:
+                if message.reply_to_message:
+                    disable_notification = True
+                    if len(message.command) >= 2 and message.command[1] in [
+                        "alert",
+                        "notify",
+                        "loud",
+                    ]:
+                        disable_notification = False
+                    await client.pin_chat_message(
+                        message.chat.id,
+                        message.reply_to_message.message_id,
+                        disable_notification=disable_notification,
+                    )
+                else:
+                    await edrep(message, text=("pin_message"))
+                    await asyncio.sleep(5)
+                await message.delete()
+            except Exception as e:
+                await edrep(message, text="`Error!`\n" f"**Log:** `{e}`")
+                return
+        else:
+            await edrep(message, text=("denied_permission"))
+            await asyncio.sleep(5)
+            await message.delete()
     else:
         await message.delete()
