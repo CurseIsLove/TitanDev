@@ -10,6 +10,7 @@ pyDownload==0.0.1.dev4
 google-auth-oauthlib
 googletrans
 hachoir
+gpytranslate
 heroku3
 html-telegraph-poster
 instaloader
