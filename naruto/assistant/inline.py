@@ -7,8 +7,8 @@ from pyrogram import errors
 from pyrogram.types import InlineQueryResultArticle, InlineKeyboardMarkup, InputTextMessageContent, InlineKeyboardButton
 
 from naruto import setbot, Owner, OwnerName, DB_AVAILABLE
-from naruto.helpers.msg_types import Types
-from naruto.helpers.string import parse_button, build_keyboard
+from naruto.utils.msg_types import Types
+from naruto.utils.string import parse_button, build_keyboard
 from naruto.plugins.pm import welc_txt
 from naruto.plugins.stylish import text_style_generator, formatting_text_inline, CHAR_OVER, \
     CHAR_UNDER, CHAR_STRIKE, graffiti, graffitib, CHAR_POINTS, upsidedown_text_inline, smallcaps, superscript, \
