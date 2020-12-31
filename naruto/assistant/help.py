@@ -151,7 +151,7 @@ async def stats(_, message):
         text += "<b>Group joined:</b> `{} groups`\n".format(
             len(get_all_chats())
         )
-    stk = await app.send(functions.messages.GetAllStickers(hash=0))
+    stk = await naruto.send(functions.messages.GetAllStickers(hash=0))
     all_sets = stk.sets
     count = sum(x.count for x in all_sets)
     text += "<b>Stickers Count:</b> <code>{} across {} sets</code>\n".format(
