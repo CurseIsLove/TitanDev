@@ -154,7 +154,7 @@ async def spam_stick(client, message):
         if message.chat.type == "private":
             for _ in range(int(times)):
                 sticker=message.reply_to_message.sticker.file_id
-                await client.send_message(
+                await client.send_sticker(
                     message.chat.id, sticker
                 )
                 await asyncio.sleep(0.20)
