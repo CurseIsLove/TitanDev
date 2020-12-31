@@ -1,5 +1,5 @@
 from pyrogram.types import Message
-from naruto import app
+from naruto import naruto
 
 
 async def admin_check(message: Message) -> bool:
