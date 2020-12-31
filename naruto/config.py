@@ -31,7 +31,7 @@ class Config:
     INSTA_ID = os.environ.get("INSTA_ID")
     INSTA_PASS = os.environ.get("INSTA_PASS")
     UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO")
-    UPSTREAM_REMOTE = os.environ.get("UPSTREAM_REMOTE")
+    UPSTREAM_REMOTE = os.environ.get("UPSTREAM_REMOTE
     SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
     CURRENCY_API = os.environ.get("CURRENCY_API", None)
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
@@ -50,8 +50,7 @@ class Config:
     G_DRIVE_IS_TD = os.environ.get("G_DRIVE_IS_TD") == "true"
     ASSISTANT_W = int(os.environ.get("ASSISTANT_WORKER"))
     BOT_W = int(os.environ.get("BOT_WORKER"))
-    LOAD_UNOFFICIAL_PLUGINS = os.environ.get(
-        "LOAD_UNOFFICIAL_PLUGINS") == "true"
+    LOAD_UNOFFICIAL_PLUGINS = os.environ.get( "LOAD_UNOFFICIAL_PLUGINS") == "true"
     THUMB_PATH = DOWN_PATH + "thumb_image.jpg"
     TMP_PATH = "naruto/plugins/temp/"
     MAX_MESSAGE_LENGTH = 4096
@@ -67,6 +66,7 @@ class Config:
     ALLOWED_COMMANDS: Set[str] = set()
     ANTISPAM_SENTRY = False
     RUN_DYNO_SAVER = False
+    GDRIVE_CREDENTIALS = (os.environ.get("gdrive_credentials"))
     HEROKU_APP = heroku3.from_key(HEROKU_API_KEY).apps()[HEROKU_APP_NAME] \
         if HEROKU_API_KEY and HEROKU_APP_NAME else None
     STATUS = None
