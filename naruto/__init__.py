@@ -47,6 +47,7 @@ PM_PERMIT= Config.PM_PERMIT
 lydia_api= Config.lydia_api
 ASSISTANT_NOLOAD = ""
 Command = (Config.Command)
+COMMAND_PREFIXES = (Config.Command)
 StartTime = time.time()
 BOT_IMG = Config.BOT_IMG
 # Postgresql
