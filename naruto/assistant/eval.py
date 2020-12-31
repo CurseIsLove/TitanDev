@@ -8,7 +8,7 @@ from io import StringIO
 from pyrogram import filters
 
 from naruto import Owner, setbot
-from naruto.plugins.devs import aexec
+from naruto.plugins.dev import aexec
 
 
 @setbot.on_message(filters.user(Owner) & filters.command(["eval"]))
