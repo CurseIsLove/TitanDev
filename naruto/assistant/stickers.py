@@ -3,7 +3,7 @@ from .settings import get_text_settings, get_button_settings
 from pyrogram import filters
 from pyrogram.types import ReplyKeyboardMarkup
 
-from naruto import setbot, AdminSettings, DB_AVAILABLE, app, Owner, NANA_IMG
+from naruto import setbot, AdminSettings, DB_AVAILABLE, naruto, Owner, NANA_IMG
 from naruto.assistant.database.stickers_db import set_sticker_set, set_stanim_set
 from naruto.assistant.__main__ import dynamic_data_filter
 
@@ -28,7 +28,7 @@ async def get_stickers(_, message):
     for x in keyboard:
         for y in x:
             TEMP_KEYBOARD.append(y)
-    await narutk.send_message("@Stickers", "/cancel")
+    await naruto.send_message("@Stickers", "/cancel")
     msg = await message.reply(
         "Select your stickers for set as kang sticker",
         reply_markup=ReplyKeyboardMarkup(keyboard),
