@@ -35,8 +35,8 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-@setbot.on_callback_query(dynamic_data_filter("alive_message"))
-async def alivemsg_callback(client, query):
+@naruto.on_message(filters.user(AdminSettings) & filters.command("alive", Command))
+async def google_search(client, message):
     start_time = time.time()
     uptime = get_readable_time((time.time() - StartTime))
     reply_msg = f"{OwnerUsername}@titan\n"
@@ -45,17 +45,4 @@ async def alivemsg_callback(client, query):
     ping_time = round((end_time - start_time) * 1000, 3)
     reply_msg += f"Ping: {ping_time}ms\n"
     reply_msg += f"Userbot uptime: {uptime}"
-    await client.answer_callback_query(query.id, reply_msg, show_alert=True)
-
-
-@naruto.on_message(filters.user(AdminSettings) & filters.command("alive", Command))
-async def google_search(client, message):
-    x = await client.get_inline_bot_results(f"{BotUsername}", "alive_message")
-    await message.delete()
-    await client.send_inline_bot_result(
-        chat_id=message.chat.id,
-        query_id=x.query_id,
-        result_id=x.results[0].id,
-        reply_to_message_id=ReplyCheck(message),
-        hide_via=True,
-    )
+    await message.edit(reply_msg)
