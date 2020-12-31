@@ -34,6 +34,7 @@ if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
 HEROKU_API = Config.HEROKU_API_KEY
 OWNER = Config.OWNER_ID
 Owner = OWNER
+ENV = False
 gauth = GoogleAuth()
 GDRIVE_CREDENTIALS = Config.GDRIVE_CREDENTIALS
 gdrive_credentials = Config.GDRIVE_CREDENTIALS
