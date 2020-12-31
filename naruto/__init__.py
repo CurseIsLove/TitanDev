@@ -48,6 +48,7 @@ USERBOT_NOLOAD = ""
 ASSISTANT_LOAD = ""
 PM_PERMIT= Config.PM_PERMIT
 lydia_api= Config.lydia_api
+screenshotlayer_API = Config.screenshotlayer_API
 ASSISTANT_NOLOAD = ""
 Command = (Config.Command)
 sw_api = Config.sw_api
