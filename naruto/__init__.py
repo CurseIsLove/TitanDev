@@ -50,6 +50,7 @@ PM_PERMIT= Config.PM_PERMIT
 lydia_api= Config.lydia_api
 ASSISTANT_NOLOAD = ""
 Command = (Config.Command)
+sw_api = Config.sw_api
 COMMAND_PREFIXES = (Config.Command)
 StartTime = time.time()
 BOT_IMG = Config.BOT_IMG
