@@ -1,6 +1,8 @@
 import time
 
 from pyrogram import filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 
 from naruto import setbot, AdminSettings, BotUsername, naruto, Command, OwnerUsername
 from naruto import StartTime
