@@ -5,8 +5,8 @@ from jikanpy import Jikan
 from jikanpy.exceptions import APIException
 from pyrogram import filters
 
-from nana import naruto, Command
-from nana.helpers.string import replace_text
+from naruto import naruto, Command
+from naruto.helpers.string import replace_text
 
 __MODULE__ = "MyAnimeList"
 
