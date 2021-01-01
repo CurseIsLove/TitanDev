@@ -3,7 +3,7 @@ import random
 
 from pyrogram import filters
 
-from naruto import app, COMMAND_PREFIXES, AdminSettings, edit_or_reply
+from naruto import naruto, COMMAND_PREFIXES, AdminSettings, edit_or_reply
 from naruto.utils.Pyroutils import ReplyCheck
 
 
