@@ -1,22 +1,4 @@
-Skip to content
-pokurt
-/
-Nana-Remix
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Nana-Remix/nana/plugins/user.py
-@pokurt
-pokurt Nana-Remix v3.2 (#101)
-…
- 2 contributors
-250 lines (218 sloc)  6.65 KB
- 
+
 import os
 from asyncio import sleep, gather
 
@@ -27,10 +9,9 @@ from naruto import (
     naruto,
     COMMAND_PREFIXES,
     DB_AVAILABLE,
-    AdminSettings,
-    edit_or_reply
+    AdminSettings
 )
-
+from naruto import edrep as edit_or_reply
 if DB_AVAILABLE:
     from naruto.plugins.database.cloner_db import (
         backup_indentity,
