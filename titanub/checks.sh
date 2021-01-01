@@ -76,16 +76,6 @@ print(quote_plus("'$uNameAndPass'"))')
     DATABASE_URL=$(sed 's/$uNameAndPass/$parsedUNameAndPass/' <<< $DATABASE_URL)
 }
 
-_checkDatabase() {
-    editLastMessage "Checking DATABASE_URL ..."
-    local mongoErr=$(runPythonCode '
-import pymongo
-try:
-    pymongo.MongoClient("'$MONGODB_URL'").list_database_names()
-except Exception as e:
-    print(e)')
-    [[ $mongoErr ]] && quit "pymongo response > $mongoErr" || log "\tpymongo response > {status : 200}"
-}
 
 _checkTriggers() {
     editLastMessage "Checking TRIGGERS ..."
@@ -177,7 +167,6 @@ assertPrerequisites() {
 
 assertEnvironment() {
     _checkDefaultVars
-    _checkDatabase
     _checkTriggers
     _checkPaths
     _checkBins
