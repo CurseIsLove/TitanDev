@@ -18,7 +18,7 @@ from naruto.utils.msg_types import Types, get_message_type
 from naruto.utils.parser import mention_markdown, escape_markdown
 
 if DB_AVAILABLE:
-    from nana.plugins.database.afk_db import set_afk, get_afk
+    from naruto.plugins.database.afk_db import set_afk, get_afk
 
 __MODULE__ = "AFK"
 __HELP__ = """
