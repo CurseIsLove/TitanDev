@@ -13,7 +13,7 @@ from pyrogram.errors import (
     FloodWait,
 )
 
-from naruto import naruto, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep ,COMMAND_PREFIXES
 from naruto.utils.admincheck import admin_check
 
 
