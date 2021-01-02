@@ -56,7 +56,6 @@ __Supported pin types__: `alert`, `notify`, `loud`
 ──「 **Deleted Account** 」──
 -> `zombies` or `zombies clean`
 Checks Group for deleted accounts & clean them
-"""
 ──「 **Group Calls** 」──
 -> `cgroupcall` (**chat_id)
 Create a GroupCall
