@@ -36,7 +36,7 @@ OWNER = Config.OWNER_ID
 Owner = OWNER
 ENV = False
 gauth = GoogleAuth()
-
+OFFICIAL_BRANCH = ["master"]
 GDRIVE_CREDENTIALS = Config.GDRIVE_CREDENTIALS
 gdrive_credentials = Config.GDRIVE_CREDENTIALS
 AdminSettings = Config.AdminSettings
@@ -60,6 +60,7 @@ sw_api = Config.sw_api
 COMMAND_PREFIXES = (Config.Command)
 StartTime = time.time()
 BOT_IMG = Config.BOT_IMG
+REMINDER_UPDATE = bool(Config.REMINDER_UPDATE)
 # Postgresqlw5mj by
 def mulaisql() -> scoped_session:
     global DB_AVAILABLE
