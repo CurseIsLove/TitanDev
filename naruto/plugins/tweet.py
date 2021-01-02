@@ -5,7 +5,7 @@ from PIL import Image
 from validators.url import url
 
 from naruto.utils import demojify
-from naruto import userge, Config, Message
+from naruto import naruto, Config, Message
 
 CONVERTED_IMG = Config.DOWN_PATH + "img.png"
 
