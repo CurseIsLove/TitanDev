@@ -28,8 +28,7 @@ formatter = logging.Formatter(LOG_FORMAT)
 console.setFormatter(formatter)
 logging.getLogger("").addHandler(console)
 log = logging.getLogger()
-if Config.HU_STRING_SESSION
-    APP_SESSION = Config.HU_STRING_SESSION
+APP_SESSION = Config.HU_STRING_SESSION
 RANDOM_STICKERS = [
     "CAADAgAD6EoAAuCjggf4LTFlHEcvNAI",
     "CAADAgADf1AAAuCjggfqE-GQnopqyAI",
