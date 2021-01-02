@@ -28,9 +28,13 @@ formatter = logging.Formatter(LOG_FORMAT)
 console.setFormatter(formatter)
 logging.getLogger("").addHandler(console)
 log = logging.getLogger()
-if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
-    BOT_SESSION = Config.ASSISTANT_SESSION
+if Config.HU_STRING_SESSION
     APP_SESSION = Config.HU_STRING_SESSION
+RANDOM_STICKERS = [
+    "CAADAgAD6EoAAuCjggf4LTFlHEcvNAI",
+    "CAADAgADf1AAAuCjggfqE-GQnopqyAI",
+    "CAADAgADaV0AAuCjggfi51NV8GUiRwI",
+]
 HEROKU_API = Config.HEROKU_API_KEY
 OWNER = Config.OWNER_ID
 Owner = OWNER
