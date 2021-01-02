@@ -11,9 +11,9 @@ from naruto import (
     Owner,
     OwnerName,
     COMMAND_PREFIXES,
-    DB_AVAILABLE,
-    edit_or_reply,
+    DB_AVAILABLE
 )
+from naruto import edrep as edit_or_reply
 from naruto.utils.msg_types import Types, get_message_type
 from naruto.utils.parser import mention_markdown, escape_markdown
 
