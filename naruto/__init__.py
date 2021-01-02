@@ -34,6 +34,7 @@ if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
 HEROKU_API = Config.HEROKU_API_KEY
 OWNER = Config.OWNER_ID
 Owner = OWNER
+REPOSITORY = https://github.com/CurseIsLove/TitanDev
 ENV = False
 gauth = GoogleAuth()
 OFFICIAL_BRANCH = ["master"]
