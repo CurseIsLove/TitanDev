@@ -6,6 +6,6 @@ from naruto import naruto , LOG_CHANNEL_ID
 
 @app.on_message(~filters.me & filters.private & ~filters.bot)
 async def pm_log(client, message):
-    if LOG_CHANNEL_ID is None
+    if not LOG_CHANNEL_ID:
         return
     await message.forward("LOG_CHANNEL_ID")
