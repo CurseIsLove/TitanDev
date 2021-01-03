@@ -1,77 +1,4 @@
-{
-  "name": "titan",
-  "description": "telegram pluggable userbot",
-  "logo": "https://imgur.com/download/Inyeb1S",
-  "keywords": [
-    "titan",
-    "telegram",
-    "pluggable",
-    "userbot"
-  ],
-  "repository": "https://github.com/CurseIsLove/Titan",
-  "website": "https://github.com/CurseIsLove",
-  "success_url": "https://t.me/titansupport",
-  "env": {
-    "ENV": {
-      "description": "Fill this if you using environ variable as config.",
-      "value": "ANYTHING"
-    },
-    "API_ID": {
-      "description": "Get this value from https://my.telegram.org",
-      "value": ""
-    },
-    "API_HASH": {
-      "description": "Get this value from https://my.telegram.org",
-      "value": ""
-    },
-    "LOG_CHANNEL_ID": {
-      "description": "Telegram Log Channel ID",
-      "value": ""
-    },
-    "HU_STRING_SESSION": {
-      "description": "[USER MODE] - Get this using 'https://GenUserGeString.usergeuserbot.repl.run' or `bash genStr`",
-      "value": ""
-    },
-    "BOT_TOKEN": {
-      "description": "[BOT MODE] - Get this from https://t.me/botfather",
-      "value": "",
-      "required": false
-    },
-    "OWNER_ID": {
-      "description": "[BOT MODE] - Your user_id",
-      "value": "",
-      "required": false
-    },
-    "HEROKU_APP_NAME": {
-      "description": "given app name to the heroku app",
-      "value": ""
-    },
-    "HEROKU_API_KEY": {
-      "description": "get a Heroku API key from http://dashboard.heroku.com/account",
-      "value": ""
-    },
-    "remove_bg_api": {
-      "description": "(optional) Register at : https://www.remove.bg/",
-      "value": "",
-      "required": false
-    },
-    "lydia_api": {
-      "description": "(optional) Fill in your Coffeehouse API, get from https://coffeehouse.intellivoid.net",
-      "value": "",
-      "required": false
-    },
-    "bitly_token": {
-      "description": "(optional) Register at : https://http://app.bitly.com/ profile settings -> generic access token",
-      "value": "",
-      "required": false
-    },
-    "BOT_IMG": {
-      "description": "(optional) Url of a photo to show up in your Assistant",
-      "value": "",
-      "required": false
-    },
-    "ASSISTANT_WORKER": {
-      "description": "(optional) Worker for Assistant bot",
+": "(optional) Worker for Assistant bot",
       "value": "2",
       "required": false
     },
@@ -111,13 +38,13 @@
       "url": "https://github.com/rking32/heroku-buildpack-google-chrome"
     },
     {
-      "url": "https://github.com/rking32/heroku-buildpack-chromedriver"
+      "u": "https://github.com/rking32/heroku-buildpack-chromedriver"
     },
     {
       "url": "https://github.com/chrismytton/heroku-buildpack-jq.git"
     },
-    {
-      "url": "heroku/python"
-    }
-  ]
-}
+
+
+
+
+
