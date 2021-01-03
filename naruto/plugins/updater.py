@@ -16,7 +16,7 @@ from naruto import (
     edrep as edit_or_reply,
 )
 from naruto.__main__ import restart_all, except_hook
-from naruto.plugins.assistant.updater import update_changelog
+from naruto.assistant.updater import update_changelog
 
 __MODULE__ = "Updater"
 __HELP__ = """
