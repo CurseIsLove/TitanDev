@@ -41,7 +41,7 @@ _checkDefaultVars() {
         [PREFERRED_LANGUAGE]="en"
         [DOWN_PATH]="downloads"
         [UPSTREAM_REMOTE]="upstream"
-        [UPSTREAM_REPO]="https://https://github.com/CurseIsLove/Titan/blob/main"
+        [UPSTREAM_REPO]="https://https://github.com/CurseIsLove/TitanDev/blob/main"
         [LOAD_UNOFFICIAL_PLUGINS]=false
         [G_DRIVE_IS_TD]=true
         [CMD_TRIGGER]="."
