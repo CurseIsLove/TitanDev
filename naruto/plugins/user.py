@@ -14,7 +14,7 @@ from naruto import (
 )
 
 if DB_AVAILABLE:
-    from nana.plugins.database.cloner_db import (
+    from naruto.plugins.database.cloner_db import (
         backup_indentity,
         restore_identity
     )
