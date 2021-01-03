@@ -28,15 +28,19 @@ formatter = logging.Formatter(LOG_FORMAT)
 console.setFormatter(formatter)
 logging.getLogger("").addHandler(console)
 log = logging.getLogger()
-if Config.HU_STRING_SESSION and Config.ASSISTANT_SESSION:
-    BOT_SESSION = Config.ASSISTANT_SESSION
-    APP_SESSION = Config.HU_STRING_SESSION
+APP_SESSION = Config.HU_STRING_SESSION
+RANDOM_STICKERS = [
+    "CAADAgAD6EoAAuCjggf4LTFlHEcvNAI",
+    "CAADAgADf1AAAuCjggfqE-GQnopqyAI",
+    "CAADAgADaV0AAuCjggfi51NV8GUiRwI",
+]
 HEROKU_API = Config.HEROKU_API_KEY
 OWNER = Config.OWNER_ID
 Owner = OWNER
+REPOSITORY = "https://github.com/CurseIsLove/TitanDev"
 ENV = False
 gauth = GoogleAuth()
-
+OFFICIAL_BRANCH = ["master"]
 GDRIVE_CREDENTIALS = Config.GDRIVE_CREDENTIALS
 gdrive_credentials = Config.GDRIVE_CREDENTIALS
 AdminSettings = Config.AdminSettings
@@ -44,6 +48,7 @@ DB_AVAILABLE = False
 BOTINLINE_AVAIABLE = False
 USERBOT_VERSION = 0.1
 ASSISTANT_VERSION = 0.1
+LOG_CHANNEL_ID = Config.LOG_CHANNEL_ID
 USERBOT_LOAD =""
 USERBOT_NOLOAD = ""
 ASSISTANT_LOAD = ""
@@ -59,6 +64,7 @@ sw_api = Config.sw_api
 COMMAND_PREFIXES = (Config.Command)
 StartTime = time.time()
 BOT_IMG = Config.BOT_IMG
+REMINDER_UPDATE = bool(Config.REMINDER_UPDATE)
 # Postgresqlw5mj by
 def mulaisql() -> scoped_session:
     global DB_AVAILABLE

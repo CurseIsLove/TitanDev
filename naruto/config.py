@@ -16,6 +16,7 @@ class Config:
     OWNER_ID = tuple(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "0").split())))
     AdminSettings = [int(x) for x in (os.environ.get("AdminSettings", "")).split()]
     LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
+    REMINDER_UPDATE = os.environ.get("REMINDER_UPDATE", True)
     DB_URI = os.environ.get("DATABASE_URL", None)
     BOT_IMG = os.environ.get("BOT_IMG", None)
     DB_URI2 = os.environ.get("MONGODB_URL")

@@ -34,3 +34,20 @@ def set_afk(afk, reason):
     SESSION.add(afk_db)
     SESSION.commit()
     MY_AFK[Owner] = {"afk": afk, "reason": reason}
+
+def get_afk():
+    return MY_AFK.get(Owner)
+
+
+def __load_afk():
+    global MY_AFK
+    try:
+        MY_AFK = {}
+        qall = SESSION.query(AFK).all()
+        for x in qall:
+            MY_AFK[int(x.user_id)] = {"afk": x.is_afk, "reason": x.reason}
+    finally:
+        SESSION.close()
+
+
+__load_afk()

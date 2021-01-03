@@ -13,7 +13,7 @@ from pyrogram.errors import (
     FloodWait,
 )
 
-from naruto import naruto, Command, AdminSettings, edrep
+from naruto import naruto, Command, AdminSettings, edrep ,COMMAND_PREFIXES
 from naruto.utils.admincheck import admin_check
 
 
@@ -56,8 +56,10 @@ __Supported pin types__: `alert`, `notify`, `loud`
 ──「 **Deleted Account** 」──
 -> `zombies` or `zombies clean`
 Checks Group for deleted accounts & clean them
+──「 **Group Calls** 」──
+-> `cgroupcall` (**chat_id)
+Create a GroupCall
 """
-
 custom_rank = ""
 messages = ""
 media = ""
@@ -853,3 +855,32 @@ async def deleted_clean(client, message):
         if del_users > 0:
             del_stats = f"`Found` **{del_users}** `deleted accounts in this chat.`"
         await edrep(message, text=del_stats)
+
+
+@naruto.on_message(
+    filters.user(AdminSettings) &
+    filters.command("cgroupcall", COMMAND_PREFIXES)
+)
+async def create_group_call(_, message):
+    cmd = message.command
+    try:
+        peer = await app.resolve_peer(cmd[1])
+    except IndexError:
+        peer = await app.resolve_peer(message.chat.id)
+    try:
+        await naruto.send(
+            raw.functions.phone.CreateGroupCall(
+                peer=raw.types.InputPeerChannel(
+                    channel_id=peer.channel_id,
+                    access_hash=peer.access_hash
+                ),
+                random_id=app.rnd_id() // 9000000000
+            )
+        )
+    except ChatAdminRequired:
+        await edit_or_reply(
+            message,
+            text=tld("denied_permission")
+        )
+    except AttributeError:
+        await message.delete()
