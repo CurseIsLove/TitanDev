@@ -69,11 +69,6 @@ except Exception as e:
     for var in G_DRIVE_IS_TD LOAD_UNOFFICIAL_PLUGINS; do
         eval $var=$(tr "[:upper:]" "[:lower:]" <<< ${!var})
     done
-    local uNameAndPass=$(grep -oP "(?<=\/\/)(.+)(?=\@cluster)" <<< $DATABASE_URL)
-    local parsedUNameAndPass=$(runPythonCode '
-from urllib.parse import quote_plus
-print(quote_plus("'$uNameAndPass'"))')
-    DATABASE_URL=$(sed 's/$uNameAndPass/$parsedUNameAndPass/' <<< $DATABASE_URL)
 }
 
 
@@ -125,16 +120,6 @@ _checkGit() {
     fi
 }
 
-_checkUpstreamRepo() {
-    editLastMessage "Checking UPSTREAM_REPO ..."
-    remoteIsExist $UPSTREAM_REMOTE || addUpstream
-    replyLastMessage "\tFetching Data From UPSTREAM_REPO ..."
-    fetchUpstream || updateUpstream && fetchUpstream || quit "Invalid UPSTREAM_REPO var !"
-    fetchBranches
-    updateBuffer
-    deleteLastMessage
-}
-
 _checkUnoffPlugins() {
     editLastMessage "Checking UnOfficial Plugins ..."
     if test $LOAD_UNOFFICIAL_PLUGINS = true; then
@@ -171,6 +156,5 @@ assertEnvironment() {
     _checkPaths
     _checkBins
     _checkGit
-    _checkUpstreamRepo
     _checkUnoffPlugins
 }
