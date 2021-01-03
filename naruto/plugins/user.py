@@ -85,7 +85,7 @@ async def set_pfp(client, message):
         await message.delete()
 
 
-@naruro.on_message(
+@naruto.on_message(
     filters.user(AdminSettings) &
     filters.command("vpfp", COMMAND_PREFIXES)
 )
