@@ -193,6 +193,6 @@ async def report_some_errors(client, query):
     err = query.message.text
     open("naruto/cache/errors.txt", "w").write(err)
     await query.message.edit_reply_markup(reply_markup=None)
-    await app.send_document("@TitanSupportGroup", "naruto/cache/errors.txt", caption=text)
+    await naruto.send_document("@TitanSupportGroup", "naruto/cache/errors.txt", caption=text)
     os.remove("naruto/cache/errors.txt")
     await client.answer_callback_query(query.id, "Report was sent!")
