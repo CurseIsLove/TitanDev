@@ -1,7 +1,7 @@
 {
   "name": "titan",
   "description": "telegram pluggable userbot",
-  "logo": "https://imgur.com/download/Inyeb1S",
+  "logo": "https://telegra.ph/file/608bab81923b9015b5fd0.jpg",
   "keywords": [
     "titan",
     "telegram",
@@ -10,7 +10,7 @@
   ],
   "repository": "https://github.com/CurseIsLove/Titan",
   "website": "https://github.com/CurseIsLove",
-  "success_url": "https://t.me/titansupport",
+  "success_url": "https://t.me/TitanSupportGroup",
   "env": {
     "ENV": {
       "description": "Fill this if you using environ variable as config.",
