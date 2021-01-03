@@ -4,8 +4,8 @@
 # and is released under the "GNU v3.0 License Agreement".
 # Please see <https://github.com/CurselsLove/Titan/blob/main/LICENSE >
 #
-# All rights reserved.import asyncio
-
+# All rights reserved
+import asyncio
 from pyrogram import Client
 
 APP_ID = int(input("enter Telegram APP ID: "))
