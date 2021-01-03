@@ -188,11 +188,11 @@ async def get_myself_btn(client, query):
 
 @setbot.on_callback_query(dynamic_data_filter("report_errors"))
 async def report_some_errors(client, query):
-    await app.join_chat("@narutobotsupport")
+    await naruto.join_chat("@TitanSupportGroup")
     text = "Hi @gym2105, i got an error for you.\nPlease take a look and fix it if possible.\n\nThank you ❤️"
     err = query.message.text
     open("naruto/cache/errors.txt", "w").write(err)
     await query.message.edit_reply_markup(reply_markup=None)
-    await app.send_document("narutobotsupport", "naruto/cache/errors.txt", caption=text)
+    await app.send_document("@TitanSupportGroup", "naruto/cache/errors.txt", caption=text)
     os.remove("naruto/cache/errors.txt")
     await client.answer_callback_query(query.id, "Report was sent!")
