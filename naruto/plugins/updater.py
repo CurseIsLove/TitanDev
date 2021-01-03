@@ -7,13 +7,13 @@ from git import Repo
 from git.exc import InvalidGitRepositoryError, GitCommandError, NoSuchPathError
 from pyrogram import filters
 
-from nana import (
-    app,
+from naruto import (
+    naruto,
     COMMAND_PREFIXES,
     AdminSettings,
     OFFICIAL_BRANCH,
     REPOSITORY,
-    edit_or_reply,
+    edrep as edit_or_reply,
 )
 from naruto.__main__ import restart_all, except_hook
 from naruto.plugins.assistant.updater import update_changelog
@@ -62,7 +62,7 @@ async def initial_git(repo):
     os.rename("naruto-old/naruto/session/", "naruto/session/")
 
 
-@app.on_message(
+@naruto.on_message(
     filters.user(AdminSettings) &
     filters.command("update", COMMAND_PREFIXES)
 )
