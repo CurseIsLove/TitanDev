@@ -49,5 +49,5 @@ async def google_search(client, message):
     reply_msg += f"__Running on pyrogram__"
     reply_msg += f"**Pyhton version**  : 3.8"
     reply_msg += f"Servers functioning- normal"
-    await client.send_file(message.chat.id , Alive_pic , reply_msg)
+    await client.send_video(message.chat.id , Alive_pic , reply_msg)
     await message.delete()
