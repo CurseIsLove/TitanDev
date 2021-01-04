@@ -118,7 +118,7 @@ async def update_button(client, query):
         log.warning(f"Check update failed!\n{error}")
         return
 
-    brname = repo.active_branch.name
+    brname = "Deploy"
     if brname not in OFFICIAL_BRANCH:
         return
 
