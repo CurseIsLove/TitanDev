@@ -49,6 +49,7 @@ async def initial_git(repo):
         shutil.rmtree("naruto-old")
     os.mkdir("naruto-old")
     os.rename("naruto", "naruto-old/naruto")
+    os.rename("titanub", "naruto-old/titanub")
     os.rename(".gitignore", "naruto-old/.gitignore")
     os.rename("LICENSE", "naruto-old/LICENSE")
     os.rename("README.md", "naruto-old/README.md")
