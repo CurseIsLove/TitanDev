@@ -46,8 +46,8 @@ async def google_search(client, message):
     reply_msg += f"Ping: {ping_time}ms\n"
     reply_msg += f"Userbot uptime: {uptime}\n"
     reply_msg += f"Owners username : {OwnerUsername}\n"
-    reply_msg += f"__Running on pyrogram__"
-    reply_msg += f"**Pyhton version**  : 3.8"
+    reply_msg += f"__Running on pyrogram__\n"
+    reply_msg += f"**Pyhton version**  : 3.8\n"
     reply_msg += f"Servers functioning- normal"
     await client.send_video(message.chat.id , Alive_pic , reply_msg)
     await message.delete()

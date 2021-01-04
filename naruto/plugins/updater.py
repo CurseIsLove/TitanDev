@@ -49,6 +49,12 @@ async def initial_git(repo):
         shutil.rmtree("naruto-old")
     os.mkdir("naruto-old")
     os.rename("naruto", "naruto-old/naruto")
+    os.rename(".deepsource.toml", "naruto-old/.deepsource.toml")
+    os.rename("app.json", "naruto-old/app.json")
+    os.rename("genstringsess.py", "naruto-old/genstringsess.py")
+    os.rename("hustrgen", "naruto-old/hustrgen")
+    os.rename("kakashi", "naruto-old/kakashi")
+    os.rename("titanub", "naruto-old/titanub")
     os.rename(".gitignore", "naruto-old/.gitignore")
     os.rename("LICENSE", "naruto-old/LICENSE")
     os.rename("README.md", "naruto-old/README.md")
@@ -115,7 +121,7 @@ async def updater(client, message):
             await restart_all()
             return
 
-    brname = "Deploy"
+    brname = "main"
     if brname not in OFFICIAL_BRANCH:
         await edit_or_reply(
             message,

@@ -35,9 +35,9 @@ async def gen_chlog(repo, diff):
 
 async def update_changelog(changelog):
     await setbot.send_sticker(Owner, random.choice(RANDOM_STICKERS))
-    text = ("update_successful")
+    text = ("update_successful \n")
     text += ("update_welcome").format(USERBOT_VERSION, ASSISTANT_VERSION)
-    text += ("updated_changelog")
+    text += ("\n updated_changelog--")
     text += changelog
     await setbot.send_message(Owner, text)
 
@@ -59,7 +59,7 @@ async def update_checker():
         log.warning(f"Check update failed!\n{error}")
         return
 
-    brname = repo.active_branch.name
+    brname = "main"
     if brname not in OFFICIAL_BRANCH:
         return
 
@@ -69,7 +69,7 @@ async def update_checker():
         pass
 
     upstream = repo.remote("upstream")
-    upstream.fetch(brname)
+    upstream.fetch("main")
     changelog = await gen_chlog(repo, f"HEAD..upstream/{brname}")
 
     if not changelog:
@@ -118,7 +118,7 @@ async def update_button(client, query):
         log.warning(f"Check update failed!\n{error}")
         return
 
-    brname = "Deploy"
+    brname = "main"
     if brname not in OFFICIAL_BRANCH:
         return
 
@@ -128,11 +128,11 @@ async def update_button(client, query):
         pass
 
     upstream = repo.remote("upstream")
-    upstream.fetch(brname)
+    upstream.fetch("main")
     changelog = await gen_chlog(repo, f"HEAD..upstream/{brname}")
     try:
-        upstream.pull(brname)
-        await client.send_message(Owner, tld("update_successful"))
+        upstream.pull(main)
+        await client.send_message(Owner, "update_successful")
     except GitCommandError:
         repo.git.reset("--hard")
         repo.git.clean("-fd", "naruto/modules/")

@@ -3,7 +3,6 @@ from platform import python_version
 
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
 from naruto import (
     naruto,
     setbot,
@@ -78,11 +77,11 @@ async def start(_, message):
                 ],
             ]
         )
-        start_message = f"OwnerName \n python_version() \n userbot_stat \n USERBOT_VERSION \n ASSISTANT_VERSION \n DB_AVAILABLE \n db_stat \n Text"
+        start_message = Text
         if BOT_IMG:
             await message.reply_photo(
                 BOT_IMG,
-                caption=start_message,
+                caption=(start_message),
                 reply_markup=buttons,
             )
         else:
