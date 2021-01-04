@@ -132,9 +132,9 @@ async def updater(client, message):
         pass
 
     upstream = repo.remote("upstream")
-    upstream.fetch(brname)
+    upstream.fetch("main")
     try:
-        changelog = await gen_chlog(repo, f"HEAD..upstream/{brname}")
+        changelog = await gen_chlog(repo, f"HEAD..upstream/main")
     except Exception as err:
         if "fatal: bad revision" in str(err):
             try:
@@ -192,7 +192,7 @@ async def updater(client, message):
     elif len(message.text.split()) == 2 and message.text.split()[1] == "now":
         await edit_or_reply(message, text="`New update found, updating...`")
         try:
-            upstream.pull(brname)
+            upstream.pull("main")
             await edit_or_reply(
                 message, text="Successfully Updated!\nBot is restarting..."
             )
