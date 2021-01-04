@@ -81,7 +81,7 @@ async def start(_, message):
         if BOT_IMG:
             await message.reply_photo(
                 BOT_IMG,
-                caption=start_message,
+                caption=(start_message),
                 reply_markup=buttons,
             )
         else:
