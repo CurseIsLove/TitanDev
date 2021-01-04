@@ -55,7 +55,7 @@ async def start(_, message):
         if len(message.text.split()) >= 2:
             helparg = message.text.split()[1]
             if helparg == "help_inline":
-                await message.reply(tld("inline_help_text").format(BotUsername))
+                await message.reply(("inline_help_text").format(BotUsername))
                 return
         try:
             me = await naruto.get_me()
@@ -88,6 +88,7 @@ async def start(_, message):
                     ASSISTANT_VERSION,
                     DB_AVAILABLE,
                     db_stat,
+                    "Use /help - **to get help for userbot** \n /stats - **to get your chat status** \n /settings - **for userbot settings** \n /getme - **to get your info **"
                 ),
                 reply_markup=buttons,
             )
