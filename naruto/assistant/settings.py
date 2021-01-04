@@ -46,7 +46,7 @@ async def get_button_settings():
 
 @setbot.on_message(
     filters.user(AdminSettings) &
-    filters.command(["settings"]) &
+    filters.command("settings", "/") &
     filters.private
 )
 async def settings(_, message):
