@@ -20,7 +20,7 @@ if DB_AVAILABLE:
     from naruto.plugins.database.chats_db import get_all_chats
 
 Text = "Use /help - **to get help for userbot** \n /stats - **to get your chat status** \n /settings - **for userbot settings** \n /getme - **to get your info **"
- 
+
 @setbot.on_message(filters.private & ~filters.user(AdminSettings))
 async def un_auth(_, message):
     if message.chat.id is AdminSettings:
@@ -78,33 +78,16 @@ async def start(_, message):
                 ],
             ]
         )
+        start_message = f"OwnerName \n python_version() \n userbot_stat \n USERBOT_VERSION \n ASSISTANT_VERSION \n DB_AVAILABLE \n db_stat \n Text"
         if BOT_IMG:
             await message.reply_photo(
                 BOT_IMG,
-                caption=("start_message").format(
-                    OwnerName,
-                    python_version(),
-                    userbot_stat,
-                    USERBOT_VERSION,
-                    ASSISTANT_VERSION,
-                    DB_AVAILABLE,
-                    db_stat,
-                    Text,
-                ),
+                caption=start_message
                 reply_markup=buttons,
             )
         else:
             await message.reply(
-                  ("start_message").format(
-                    OwnerName,
-                    python_version(),
-                    userbot_stat,
-                    USERBOT_VERSION,
-                    ASSISTANT_VERSION,
-                    DB_AVAILABLE,
-                    db_stat,
-                    Text
-                ),
+                  start_message,
                 reply_markup=buttons,
             )
 
