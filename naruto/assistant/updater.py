@@ -35,9 +35,9 @@ async def gen_chlog(repo, diff):
 
 async def update_changelog(changelog):
     await setbot.send_sticker(Owner, random.choice(RANDOM_STICKERS))
-    text = ("update_successful"\n)
+    text = ("update_successful \n")
     text += ("update_welcome").format(USERBOT_VERSION, ASSISTANT_VERSION)
-    text += ("\nupdated_changelo--g")
+    text += ("\n updated_changelog--")
     text += changelog
     await setbot.send_message(Owner, text)
 
