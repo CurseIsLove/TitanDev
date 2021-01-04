@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-from naruto import setbot, AdminSettings, BotUsername, naruto, Command, Ownername, OwnerUsername
+from naruto import setbot, AdminSettings, BotUsername, naruto, Command, OwnerName, OwnerUsername
 from naruto import StartTime
 from naruto.helpers.PyroHelpers import ReplyCheck
 from naruto.assistant.__main__ import dynamic_data_filter
@@ -39,7 +39,7 @@ Alive_pic = "https://telegra.ph/file/096e4e77231ca13b6ff47.mp4"
 async def google_search(client, message):
     start_time = time.time()
     uptime = get_readable_time((time.time() - StartTime))
-    reply_msg = f"**TITAN USERBOT** serving \n                 {Ownername}@titan\n"
+    reply_msg = f"**TITAN USERBOT** serving \n                 {OwnerName}@titan\n"
     reply_msg += "------------------\n"
     end_time = time.time()
     ping_time = round((end_time - start_time) * 1000, 3)
