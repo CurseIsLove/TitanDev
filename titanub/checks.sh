@@ -106,6 +106,15 @@ _checkBins() {
         }
     done
 }
+_checkUpstreamRepo() {	
+    editLastMessage "Checking UPSTREAM_REPO ..."	
+    remoteIsExist $UPSTREAM_REMOTE || addUpstream	
+    replyLastMessage "\tFetching Data From UPSTREAM_REPO ..."	
+    fetchUpstream || updateUpstream && fetchUpstream || quit "Invalid UPSTREAM_REPO var !"	
+    fetchBranches	
+    updateBuffer	
+    deleteLastMessage	
+}	
 
 _checkGit() {
     editLastMessage "Checking GIT ..."
@@ -161,5 +170,6 @@ assertEnvironment() {
     _checkPaths
     _checkBins
     _checkGit
+    _checkUpstreamRepo
     _checkUnoffPlugins
 }
