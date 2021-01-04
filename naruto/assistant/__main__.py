@@ -19,7 +19,8 @@ from naruto import (
 if DB_AVAILABLE:
     from naruto.plugins.database.chats_db import get_all_chats
 
-
+Text = "Use /help - **to get help for userbot** \n /stats - **to get your chat status** \n /settings - **for userbot settings** \n /getme - **to get your info **"
+ 
 @setbot.on_message(filters.private & ~filters.user(AdminSettings))
 async def un_auth(_, message):
     if message.chat.id is AdminSettings:
@@ -88,7 +89,7 @@ async def start(_, message):
                     ASSISTANT_VERSION,
                     DB_AVAILABLE,
                     db_stat,
-                    "Use /help - **to get help for userbot** \n /stats - **to get your chat status** \n /settings - **for userbot settings** \n /getme - **to get your info **"
+                    Text,
                 ),
                 reply_markup=buttons,
             )
@@ -102,6 +103,7 @@ async def start(_, message):
                     ASSISTANT_VERSION,
                     DB_AVAILABLE,
                     db_stat,
+                    Text
                 ),
                 reply_markup=buttons,
             )
