@@ -115,7 +115,7 @@ async def updater(client, message):
             await restart_all()
             return
 
-    brname = "Deploy"
+    brname = "main"
     if brname not in OFFICIAL_BRANCH:
         await edit_or_reply(
             message,
